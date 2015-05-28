@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="utf-8">
+        <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
+        <title>Example</title>
+
+    </head>
+    <body>
+    <header class="navbar navbar-default navbar-static-top navbar-nav-top">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#accordion">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">This is A LOGO</a>
+        </div>
+
+        <ul class="nav navbar-right">
+            <li><a href="#"><i class="glyphicon glyphicon-envelope"></i></a></li><li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true"><i class="glyphicon glyphicon-user"></i><span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu">
+                    <li><a href="#" class="glyphicon glyphicon-cog"> Setting</a></li>
+                    <li><a href="#" class="glyphicon glyphicon-user"> User</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#" class="glyphicon glyphicon-log-out"> Logout</a></li>
+                </ul>
+            </li>
+        </ul>
+
+        <div class="navbar-default navbar-nav-left navbar-collapse collapse" id="accordion" role="tablist" aria-multiselectable="true" style="min-height:397px;" aria-expanded="false">
+            <div class="input-group navbar-search">
+                <input type="search" class="form-control" placeholder="Search..." />
+                <span class="input-group-btn"><button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </div>
+            <div class="panel-group">
+                <div class="panel">
+                    <div class="panel-heading" role="tab" id="htgl">
+                        <a class="panel-title collapsed" data-toggle="collapse" data-parent=".panel-group" href="#htgl-content" aria-expanded="true" aria-controls="htgl-content"><i class="glyphicon glyphicon-th-large"></i> 合同管理
+                            <i class="glyphicon glyphicon-menu-left pull-right"></i><i class="glyphicon glyphicon glyphicon-menu-down pull-right"></i>
+                        </a>
+                    </div>
+                    <div id="htgl-content" class="panel-collapse collapse" role="tabpanel" aria-labelledby="htgl">
+                        <div class="list-group">
+                            <a href="javascript:void(0);" class="list-group-item"><i class="glyphicon glyphicon-search"></i> 合同查询</a>
+                            <a href="javascript:void(0);" class="list-group-item active"><i class="glyphicon glyphicon-list-alt"></i> 草拟合同</a>
+                            <a href="javascript:void(0);" class="list-group-item"><i class="glyphicon glyphicon-copy"></i> 合同归档</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel">
+                    <div class="panel-heading" role="tab" id="headingOne">
+                        <a class="panel-title collapsed" data-toggle="collapse" data-parent=".panel-group" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne"><i class="glyphicon glyphicon-th-large"></i> 合同审批<i class="glyphicon glyphicon-menu-left pull-right"></i><i class="glyphicon glyphicon glyphicon-menu-down pull-right"></i></a>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="list-group">
+                            <a href="javascript:void(0);" class="list-group-item"><i class="glyphicon glyphicon-search"></i> 合同查询</a>
+                            <a href="javascript:void(0);" class="list-group-item">Dapibus ac facilisis in</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </header><!-- /header -->
+    <div id="page-container">
+        <iframe id="rightcontainer" src="" scrolling="auto" frameborder="0"></iframe>
+    </div>
+
+    <!-- requirejs -->
+    <script src="../../bower_components/requirejs/require.js" data-main="js/index"></script>
+   
+    </body>
+</html>
