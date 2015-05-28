@@ -9,14 +9,13 @@ require.config({
     paths: {
     	"bower": "D:/huhy/Examples/bower_components",
     	"jquery": "D:/huhy/Examples/bower_components/jquery/dist/jquery.min",
-    	"angular": "D:/huhy/Examples/bower_components/angular/angular.min",
     	"domReady": "D:/huhy/Examples/bower_components/domReady/domReady",
-    	"jquery.scrollbar": "D:/huhy/Examples/bower_components/jquery.scrollbar/jquery.scrollbar.min",
     	"require-css": "D:/huhy/Examples/bower_components/require-css/css.min",
     	"handlebars": "D:/huhy/Examples/bower_components/handlebars/handlebars.min",
     	"handlebars.runtime": "D:/huhy/Examples/bower_components/handlebars/handlebars.runtime.amd.min",
+    	"angular": "D:/huhy/Examples/bower_components/angular/angular.min",
     	"bootstrap": "D:/huhy/Examples/bower_components/bootstrap/dist/js/bootstrap.min",
-
+    	"mCustomScrollbar": "D:/huhy/Examples/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min"
     }, 
     shim: { 
         'bootstrap': {
@@ -25,12 +24,12 @@ require.config({
           		"require-css!D:/huhy/Examples/bower_components/bootstrap/dist/css/bootstrap.min.css"
           	]
         },
-        "jquery.scrollbar": {
+        "mCustomScrollbar": {
         	deps: [
           		"jquery",
-          		"require-css!D:/huhy/Examples/bower_components/bootstrap/dist/css/bootstrap.min.css"
-          	],
-          	exports : "$.fn.scrollbar"
+          		"D:/huhy/Examples/bower_components/jquery-mousewheel/jquery.mousewheel.min.js",
+          		"require-css!D:/huhy/Examples/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css"
+          	]
         } 
     } 
 });
