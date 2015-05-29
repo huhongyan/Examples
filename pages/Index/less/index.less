@@ -77,6 +77,10 @@
 	}
 	.navbar-nav-left{
 		//width: 0 !important;
+		-webkit-transform:translateX(-240px);
+		-moz-transform:translateX(-240px);
+		-ms-transform:translateX(-240px);
+		-o-transform:translateX(-240px);
 		transform:translateX(-240px);
 	}
 }
@@ -104,8 +108,10 @@
 			width: 240px;
 			margin-top: 50px;
 			border-right: 1px solid #BEBEBE !important;
-			-webhit-transition: transform ease-out .7s;
-	  		-mos-transition: transform ease-out .7s;
+			-webhit-transition: -webhit-transform ease-out .7s;
+	  		-mos-transition: -mos-transform ease-out .7s;
+	  		-ms-transition: -ms-transform ease-out .7s;
+	  		-o-transition: -o-transform ease-out .7s;
 	  		transition: transform ease-out .7s;
 			.navbar-slider{
 				display: block;
