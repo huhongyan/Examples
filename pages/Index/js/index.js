@@ -1,6 +1,6 @@
 "use strict";
 require([
-     "../../../requirejs_config", 
+     "../../../requirejs_config"
 ], function(){
     require(["jquery", "bootstrap", "mCustomScrollbar", "require-css!../css/index.css", "domReady!"], function($, bootstrap){
     	setHeight();
@@ -9,10 +9,15 @@ require([
     	});
 
     	//滚动条
-    	$('#accordion .panel-group').mCustomScrollbar({
+    	$('#leftNavbarGroup').mCustomScrollbar({
     		axis: "y",
     		theme: "minimal-dark",
     		scrollbarPosition: "outside"
+    	});
+
+    	//隐藏侧边栏事件
+    	$('.navbar-slider').off().on('click', function(){
+    		$('body').toggleClass('left-navbar-hidden');
     	});
 
         function setHeight(){
@@ -20,12 +25,12 @@ require([
             var winW = window.innerWidth;
             var navTopH = $('.navbar-nav-top').outerHeight();
             var searchH = $('.navbar-search').outerHeight();
-            console.log(navTopH);
-            console.log(searchH);
+            var contentH = winH-navTopH;
+            var leftNavH = winH-navTopH-searchH-20;
             if(winW >= 768){
-                $('#accordion').css('min-height', winH-navTopH);
-                $('#page-container').height(winH-navTopH);
-                $('#accordion .panel-group').css('max-height', winH-navTopH-searchH-20);
+                $('#accordion').css('min-height', contentH);
+                $('#page-container').height(contentH);
+                $('#leftNavbarGroup').css('max-height', leftNavH);
             }else{
                 $('#accordion').height('auto');
                 $('#page-container').height('auto');
