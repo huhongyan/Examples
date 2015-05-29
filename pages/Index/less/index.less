@@ -22,49 +22,49 @@
 				height: 34px;
 			}
 		}
-		.panel{
+		.panel-group .panel{
 			margin-bottom: 0px;
 			margin-top: 0px;
 			border-radius: 0px;
 			border-right-width: 0px;
 			border-top-width: 0px;
 			border-color: #ddd;
-			.panel-heading{
-				background-color: #f8f8f8;
-				padding: 0;
-				.panel-title{
+		}
+		.panel-heading{
+			background-color: #f8f8f8;
+			padding: 0;
+			.panel-title{
+				display: block;
+				padding: 10px 15px;
+				text-decoration: none !important;
+				font-size: 1em;
+				background-color: #fff;
+				.glyphicon-menu-down{
+					font-size: 10px;
 					display: block;
-					padding: 10px 15px;
-					text-decoration: none !important;
-					font-size: 1em;
-					background-color: #fff;
-					.glyphicon-menu-down{
-						font-size: 10px;
-						display: block;
-					}
-					.glyphicon-menu-left{
-						font-size: 10px;
-						display: none;
-					}
 				}
-				.collapsed{
-					.glyphicon-menu-down{
-						display: none;
-					}
-					.glyphicon-menu-left{
-						display: block;
-					}
+				.glyphicon-menu-left{
+					font-size: 10px;
+					display: none;
 				}
 			}
-			.list-group{
-				border-top: 1px solid #ddd;
+			.collapsed{
+				.glyphicon-menu-down{
+					display: none;
+				}
+				.glyphicon-menu-left{
+					display: block;
+				}
 			}
-			.list-group-item.active{
-				border-width: 1px;
-			}
-			.list-group-item{
-				padding-left: 30px;
-			}
+		}
+		.list-group{
+			border-top: 1px solid #ddd;
+		}
+		.list-group-item.active{
+			border-width: 1px;
+		}
+		.list-group-item{
+			padding-left: 30px;
 		}
 		.navbar-slider{
 			display: none;
