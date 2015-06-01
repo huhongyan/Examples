@@ -15,6 +15,7 @@ require.config({
     	"handlebars.runtime": "D:/huhy/Examples/bower_components/handlebars/handlebars.runtime.amd.min",
     	"angular": "D:/huhy/Examples/bower_components/angular/angular.min",
     	"bootstrap": "D:/huhy/Examples/bower_components/bootstrap/dist/js/bootstrap.min",
+    	"Font-Awesome":"D:/huhy/Examples/bower_components/Font-Awesome/css/font-awesome.min",
     	"mCustomScrollbar": "D:/huhy/Examples/bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min"
     }, 
     shim: { 

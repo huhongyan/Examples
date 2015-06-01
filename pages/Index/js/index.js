@@ -2,23 +2,23 @@
 require([
      "../../../requirejs_config"
 ], function(){
-    require(["jquery", "bootstrap", "mCustomScrollbar", "require-css!../css/index.css", "domReady!"], function($, bootstrap){
-    	setHeight();
+    require(["jquery", "bootstrap", "mCustomScrollbar", "require-css!../css/index.css", "require-css!Font-Awesome", "domReady!"], function($, bootstrap){
     	$(window).resize(function(){
     		setHeight();
-    	});
-
-    	//滚动条
-    	$('#leftNavbarGroup').mCustomScrollbar({
-    		axis: "y",
-    		theme: "minimal-dark",
-    		scrollbarPosition: "outside"
+    		//滚动条 -- 在每次窗口变化时重新渲染
+	    	$('#leftNavbarGroup').mCustomScrollbar({
+	    		axis: "y",
+	    		theme: "minimal-dark",
+	    		scrollbarPosition: "outside"
+	    	});
     	});
 
     	//隐藏侧边栏事件
     	$('.navbar-slider').off().on('click', function(){
     		$('body').toggleClass('left-navbar-hidden');
     	});
+
+    	$(window).resize();
 
         function setHeight(){
             var winH = window.innerHeight;
