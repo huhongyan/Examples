@@ -2,7 +2,7 @@
 require([
      "../../../requirejs_config"
 ], function(){
-    require(["jquery", "bootstrap", "mCustomScrollbar", "require-css!../css/index.css", "require-css!Font-Awesome", "domReady!"], function($, bootstrap){
+    require(["jquery", "bootstrap", "mCustomScrollbar", "require-css!pages/Index/css/index.css", "require-css!Font-Awesome", "domReady!"], function($, bootstrap){
     	$(window).resize(function(){
     		setHeight();
     		//滚动条 -- 在每次窗口变化时重新渲染
