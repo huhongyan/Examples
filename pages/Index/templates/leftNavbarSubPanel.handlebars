@@ -1,0 +1,19 @@
+<div class="panel-group">
+{{#each menus}}
+<div class="panel">
+    <div class="panel-heading" role="tab" id="{{title}}_{{@index}}">
+        <a class="panel-title collapsed" data-toggle="collapse" data-parent=".panel-group" href="#{{title}}_{{@index}}_content" aria-expanded="true" aria-controls="{{title}}_{{@index}}_content"><i class="{{icon}}"></i> {{this.title}} {{#if this.subMenus}}<i class="glyphicon glyphicon-menu-down pull-right"></i>{{/if}}
+        </a>
+    </div>
+    {{#if this.subMenus}}
+    <ul id="{{title}}_{{@index}}_content" class="panel-collapse collapse nav-left-sub" role="tabpanel" aria-labelledby="{{title}}_{{@index}}">
+        {{#each this.subMenus}}
+        <li class="{{#if this.active}}active{{/if}}">
+            <a href="{{href}}"><span class="menu-text">{{title}}</span></a>
+        </li>
+        {{/each}}
+    </ul>
+    {{/if}}
+</div>
+{{/each}}
+ </div>

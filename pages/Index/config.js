@@ -1,6 +1,6 @@
 ﻿(function(){
     var config = {
-		url : "action",
+		url : "pages/Index/menus.json",
     };
 	define(config);
 	
