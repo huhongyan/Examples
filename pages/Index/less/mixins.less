@@ -1,0 +1,40 @@
+/*border-radius*/
+.border-radius(@radius){ 
+	-webkit-border-radius: 	@radius; 
+	-moz-border-radius: 	@radius; 
+	border-radius: 			@radius; 
+}
+/*box-shadow*/
+.box-shadow(@style, @c) when (iscolor(@c)) {
+	-webkit-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow:         @arguments;
+}
+.box-shadow(@style, @alpha: 50%) when (isnumber(@alpha)) {
+	.box-shadow(@style, rgba(0, 0, 0, @alpha));
+}
+.box-shadow(@style1, @c1, @style2, @c2) when (iscolor(@c2)) and (iscolor(@c2)){
+	-webkit-box-shadow: @style1 @c1, @style2 @c2;
+	-webkit-box-shadow: @style1 @c1, @style2 @c2;
+	box-shadow:         @style1 @c1, @style2 @c2;
+}
+.box-shadow(@style1, @alpha1, @style2, @alpha2) when (isnumber(@alpha1)) and (isnumber(@alpha2)){
+	.box-shadow(@style1, rgba(0, 0, 0, @alpha1), @style2, rgba(0, 0, 0, @alpha2));
+}
+.box-shadow(@shadow1, @shadow2){
+	-webkit-box-shadow: @arguments;
+	-webkit-box-shadow: @arguments;
+	box-shadow:         @arguments;
+}
+/*transition*/
+.transition(@property, @duration, @timingFunction, @delay:0s){
+	-webkit-transition: @arguments;
+	-moz-transition: 	@arguments;
+	transition: 		@arguments;
+}
+/*transform*/
+.transform(@transform){
+	-webkit-transform: 	@transform;
+	-moz-transform: 	@transform;
+	transform: 			@transform;
+}

@@ -1,54 +1,47 @@
 [{
 	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"href": "#",
+	"title": "合同管理",
 	"subMenus": [
 		{
-			"title": "bbb",
+			"title": "合同查询",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "批量草拟",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "草拟合同",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "补充协议",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "修改合同",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "合同归档",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "版权审校",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "履行情况",
 			"href": "#"
 		},{
-			"title": "ccc",
+			"title": "出版作品登记",
+			"href": "#"
+		}
+		,{
+			"title": "合同执行查询",
+			"href": "#"
+		}
+		,{
+			"title": "原始稿件查询",
 			"href": "#"
 		}
 	]
 },{
 	"icon": "fa fa-th-list",
 	"title": "aaa",
-	"href": "#",
-	"subMenus": [
-		{
-			"title": "bbb",
-			"href": "#"
-		},{
-			"title": "ccc",
-			"href": "#"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"href": "#",
 	"subMenus": [
 		{
 			"title": "bbb",
@@ -61,7 +54,10 @@
 },{
 	"icon": "fa fa-th-list",
 	"title": "aaa",
-	"href": "#",
+	"href": "#"
+},{
+	"icon": "fa fa-th-list",
+	"title": "aaa",
 	"subMenus": [
 		{
 			"title": "bbb",
