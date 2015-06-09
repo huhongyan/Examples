@@ -1,122 +1,14 @@
 [{
 	"icon": "fa fa-th-list",
-	"title": "合同管理",
+	"title": "Validate",
 	"subMenus": [
 		{
-			"title": "合同查询",
-			"href": "#"
-		},{
-			"title": "批量草拟",
-			"href": "#"
-		},{
-			"title": "草拟合同",
-			"href": "#"
-		},{
-			"title": "补充协议",
-			"href": "#"
-		},{
-			"title": "修改合同",
-			"href": "#"
-		},{
-			"title": "合同归档",
-			"href": "#"
-		},{
-			"title": "版权审校",
-			"href": "#"
-		},{
-			"title": "履行情况",
-			"href": "#"
-		},{
-			"title": "出版作品登记",
-			"href": "#"
-		}
-		,{
-			"title": "合同执行查询",
-			"href": "#"
-		}
-		,{
-			"title": "原始稿件查询",
-			"href": "#"
+			"title": "Validate Demo",
+			"href": "/Example/lib/validate/index.html"
 		}
 	]
 },{
 	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"subMenus": [
-		{
-			"title": "bbb",
-			"href": "#"
-		},{
-			"title": "ccc",
-			"href": "#"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "aaa",
+	"title": "Canvas Exercise",
 	"href": "#"
-},{
-	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"subMenus": [
-		{
-			"title": "bbb",
-			"href": "#"
-		},{
-			"title": "ccc",
-			"href": "#"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"href": "#",
-	"subMenus": [
-		{
-			"title": "bbb",
-			"href": "#"
-		},{
-			"title": "ccc",
-			"href": "#"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"href": "#",
-	"subMenus": [
-		{
-			"title": "bbb",
-			"href": "#"
-		},{
-			"title": "ccc",
-			"href": "#"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"href": "#",
-	"subMenus": [
-		{
-			"title": "bbb",
-			"href": "#"
-		},{
-			"title": "ccc",
-			"href": "#"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "aaa",
-	"href": "#",
-	"subMenus": [
-		{
-			"title": "bbb",
-			"href": "#"
-		},{
-			"title": "ccc",
-			"href": "#"
-		}
-	]
 }]

@@ -135,6 +135,9 @@
 			&:last-child>a:hover, &.active:last-child>a{
 				.box-shadow(inset 0 -2px 4px -2px, .15);
 			}
+			&:only-child>a:hover, &.active:only-child>a,{
+				.box-shadow(inset 0 4px 4px -2px, .15, inset 0 -2px 4px -2px, .15);
+			} 
 			>a{
 				padding-left: 40px;
 				&:before{
@@ -187,6 +190,7 @@
 		width: 100%;
 		margin: 0;
 		padding: @navTopH 0 0 @navbarLeftW + 10;
+		overflow-y: hidden;
 		.transition(margin, .7s, ease-out);
 	}
 	.navbar-nav-top{

@@ -16,6 +16,8 @@ define([
             this.setElement(option.el);
             this.$el.html(this.template());
             this.$list = this.$el.find('#leftNavbarGroup');
+            this.pageContainer = option.pageContainer;
+
             //this.listenTo(this.collection, 'all', this.render);
         },
         render:function(){
@@ -48,15 +50,26 @@ define([
 
             this.clearActive();
             $target.addClass('active').parents('.panel:eq(0)').addClass('active');
+
+            this.toggleLink($target);
         },
         toggleAloneMenu: function(e){
             var $target = $(e.currentTarget);
 
             this.clearActive();
             $target.parents('.panel:eq(0)').addClass('active');
+
+            this.toggleLink($target);
         },
         clearActive: function(){
             this.$el.find('.active').removeClass('active');
+        },
+        toggleLink: function($target){
+            this.pageContainer.get(0).src = $target.data('href');
+
+            //进度条..
+
+            // this.pageContainer
         },
         resize: function(){
             var self = this;

@@ -14,12 +14,11 @@ define([
         el: 'body',
         initialize: function(option){
             this.$el.html(this.template());
-            this.$pageContainer = this.$el.find('#page-container');
+            this.$pageContainer = this.$el.find('#rightcontainer');
         },
         render: function(){
             !this.headerView && (this.headerView = new HeaderView({'el': this.$el.find('header')}).render());
-            !this.leftNavbarView && (this.leftNavbarView = new LeftNavbarView({'el': this.$el.find('#accordion')}).render());
-            // this.headerView.$el.insertBefore(this.$pageContainer);
+            !this.leftNavbarView && (this.leftNavbarView = new LeftNavbarView({'el': this.$el.find('#accordion'), "pageContainer": this.$pageContainer}).render());
 
             return this;
         }

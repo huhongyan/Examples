@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+	<title>Validate Index</title>
+	<style type="text/css">
+		.container{
+			margin: 20px auto;
+		}
+		.normal div{
+			display: inline-block;
+			border: 1px solid #eee;
+			padding: 10px 20px;
+			margin-bottom: 10px;
+			width: 49%;
+		}
+		.normal div pre{
+			margin-top: 10px;
+		}
+		.normal button{
+			margin: 10px 0;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-default" id="form">
+			<div class="panel-heading">使用验证(默认设置下)</div>
+			<div class="panel-body normal">
+				<p>以必输验证为例，只需要加上 validate 类名即表示此标签是要使用验证的标签，
+					比输就在标签里添加一个属性required，如果不想tip显示在右边则在属性tipPlace里指定。
+					默认触发验证的事件是blur</p>
+					<div>
+						<p>left</p>
+						<input class="validate" required tipPlace="left" />
+						<pre>&lt;input class="validate" required tipPlace="left" /&gt;</pre>
+					</div>
+					<div>
+						<p>top</p>
+						<input class="validate" required tipPlace="top" />
+						<pre>&lt;input class="validate" required tipPlace="top" /&gt;</pre>
+					</div>
+					<div>
+						<p>bottom</p>
+						<input class="validate" required tipPlace="bottom" />
+						<pre>&lt;input class="validate" required tipPlace="bottom" /&gt;</pre>
+					</div>
+					<div>
+						<p>right</p>
+						<input class="validate" required/>
+						<pre>&lt;input class="validate" required /&gt;</pre>
+					</div><br>
+					<div>
+						<p>验证组合的radio或者checkbox的必选</p>
+						<div required class="validate validate-group">
+							<input type="radio" name="a" value="A"/>A
+							<input type="radio" name="a" value="B"/>B
+							<input type="radio" name="a" value="C"/>C
+						</div>
+						<pre>&lt;div class="validate validate-group" required &gt;...&lt;/div&gt;</pre>
+					</div>
+					<div>
+						<p>select</p>
+						<select required class="validate">
+							<option value="">--请选择--</option>
+							<option value="1">北京</option>
+							<option value="2">重庆</option>
+						</select>
+						<pre>&lt;select class="validate" required &gt;...&lt;/select&gt;</pre>
+					</div><br>
+				</div>
+			</div>
+			<div class="panel panel-default">
+				<div class="panel-heading">自定义验证规则和属性等</div>
+				<div class="panel-body normal">
+					<p>用已经规定好的验证规则来验证(已定义了一些常用的，可扩展)</p>
+					<div>
+						<p>length[0,5]&chinese(多个验证规则中间用“&”连接，按顺序验证)</p>
+						<textarea class="validate" validType="length[0,5]&chinese"></textarea>
+						<pre>&lt;textarea class="validate" validType="length[0,5]"&gt;&lt;/textarea&gt;</pre>
+					</div>
+					<div>
+						<p>电话号码</p>
+						<input class="validate" validType="mobile"/>
+						<pre>&lt;input class="validate" validType="mobile" /&gt;</pre>
+					</div>
+					<div>
+						<p>中文验证</p>
+						<input class="validate" validType="chinese"/>
+						<pre>&lt;input class="validate" validType="chinese" /&gt;</pre>
+					</div>
+					<div>
+						<p>ip地址</p>
+						<input class="validate" validType="ip"/>
+						<pre>&lt;input class="validate" validType="ip" /&gt;</pre>
+					</div>
+
+					<p>设置触发验证(取消提示)的事件</p>
+					<div style="width:99%;">
+						<p>例如设置成keyup触发验证</p>
+						<input class="validate" validTrigger="keyup" validType="length[0,2]"/>
+						<pre>&lt;input class="validate" validTrigger="keyup" validType="length[0,2]" /&gt;</pre>
+					</div>
+
+					<p>自定义文本内容的正则规则</p>
+					<div style="width:99%;">
+						<p>例如format="/^\d+$/g"</p>
+						<input class="validate" format="/^\d+$/g"/>
+						<pre>&lt;input class="validate" format="/^\d+$/g" /&gt;</pre>
+					</div>
+
+					<p>标签中指定验证回调方法</p>
+					<div style="width:99%;">
+						<p>如指定验证不通过的回调invalidCallback="fn"(fn是自定义的一个function，什么也没有做只弹出msg，只是测试一下)。下面文本框只能输入数字</p>
+						<input class="validate" format="/^\d+$/g" invalidCallback="fn" validCallback="ok"/>
+						<pre>&lt;input class="validate" format="/^\d+$/g" invalidCallback="fn"/&gt;
+							&lt;script type="text/javascript"&gt;
+							function fn(elem, msg){
+							alert(msg);
+							// return true;
+						}
+						&lt;/script&gt;</pre>
+					</div>
+
+
+					<p>自定义验证后的回调</p>
+					<div style="width:99%;">
+						<button id="btn2" class="btn btn-default">改变提示效果(只改变下框的颜色，测试一下)，保留原来的tip</button>
+						<button id="btn3" class="btn btn-default">改变提示效果，不保留原来的tip</button>
+						<pre>
+							$('#btn2').click(function(){
+							validate.setCallback(function(elem){
+							$(elem).css({
+							'border':'1px solid blue',
+							'box-shadow':'none'
+						});
+
+					},function(elem,msg){
+					$(elem).css({
+					'border':'1px solid red',
+					'box-shadow': 'inset 0 1px 0 red,0 1px 2px red'
+				});
+				return true;	//返回true，保留原来的tip提示，否则就不再运行原来的tip提示
+			});
+		});
+	</pre>
+
+</div>
+</div>
+</div>
+<div class="panel panel-default">
+	<div class="panel-heading">判断表单是否全部通过验证</div>
+	<div class="panel-body normal">
+		<div>
+			<p>检测id=‘form’(就是上面默认设置的那个的面板)下的标签是否通过验证，遇到第一个未通过验证时就返回false，并会执行对应标签验证的回调</p>
+			<button id="b1" class="btn btn-primary">检测是否全部通过验证</button>
+			<pre>validate.isValidated('#form')</pre>
+		</div>
+		<div>
+			<p>检测id=‘form’下的标签是否全部通过验证，会全部检查之后再返回验证状态，并会执行所有标签验证的回调</p>
+			<button id="b2" class="btn btn-primary">检测是否全部通过验证</button>
+			<pre>validate.isValidated('#form', true)</pre>
+		</div>
+	</div>
+</div>
+</div>
+<script type="text/javascript" src="../../bower_components/requirejs/require.js" data-main="index"></script>
+<script type="text/javascript">
+	function fn(elem, msg){
+		alert(msg);
+        // return true;
+    }
+    function ok(elem){
+    	alert('ok!');
+    }
+
+</script>
+</body>
+</html>
