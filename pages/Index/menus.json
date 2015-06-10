@@ -10,5 +10,28 @@
 },{
 	"icon": "fa fa-th-list",
 	"title": "Canvas Exercise",
-	"href": "#"
+	"subMenus": [
+		{
+			"title": "Canvas Demo1",
+			"href": "/Example/pages/Canvas/canvas1.html"
+		},{
+			"title": "Canvas Demo2",
+			"href": "/Example/pages/Canvas/canvas2.html"
+		},{
+			"title": "Canvas Demo3",
+			"href": "/Example/pages/Canvas/canvas3/canvas3.html"
+		},{
+			"title": "Canvas Demo4",
+			"href": "/Example/pages/Canvas/canvas4.html"
+		}
+	]
+},{
+	"icon": "fa fa-th-list",
+	"title": "Backbone Demo",
+	"subMenus": [
+		{
+			"title": "TodoMVC",
+			"href": "/Example/pages/TodoMVC/index.html"
+		}
+	]
 }]

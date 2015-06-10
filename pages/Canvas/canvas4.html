@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Canvas学习页面</title>
+    <meta name="description" content="Canvas学习页面">
+    <meta name="keywords" content="Canvas">
+    <link href="" rel="stylesheet">
+</head>
+<body>
+<canvas id="canvas">
+    当前浏览器不支持Canvas， 请更换浏览器
+</canvas>
+
+<script type="text/javascript">
+
+    var ball = { x: 968, y:100, r:20, g:2, vx:-4, vy:0, color:'#058'};
+
+    window.onload = function(){
+        var canvas = document.getElementById('canvas');
+
+        canvas.width = 1000;
+        canvas.height = 600;
+
+        var context = canvas.getContext('2d');
+        if(!context){
+            alert('当前浏览器不支持Canvas， 请更换浏览器');
+            return;
+        }
+
+        setInterval(
+            function(){
+                render(context);
+                update();
+            },
+            50
+        );
+
+    };
+
+    function render(cxt){
+        cxt.clearRect(0,0,cxt.canvas.width, cxt.canvas.height);
+
+        cxt.fillStyle = ball.color;
+        cxt.beginPath();
+        cxt.arc(ball.x, ball.y, ball.r, 0, 2*Math.PI);
+        cxt.closePath();
+
+        cxt.fill();
+    }
+
+    function update(){
+        ball.x += ball.vx;
+        ball.y += ball.vy;
+        ball.vy += ball.g;
+
+        if(ball.y >= 600 - ball.r){
+            ball.y = 600 - ball.r;
+            ball.vy = -ball.vy*0.5;
+        }
+    }
+
+
+</script>
+</body>
+</html>

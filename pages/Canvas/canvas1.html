@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Canvas学习页面</title>
+<meta name="description" content="Canvas学习页面">
+<meta name="keywords" content="Canvas">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas">
+    	当前浏览器不支持Canvas， 请更换浏览器
+    </canvas>
+
+<script type="text/javascript">
+	var tangram = [
+		{p:[{x:0,y:0}, {x:800, y:0}, {x:400, y:400}], color: "#caff67"},
+		{p:[{x:0,y:0}, {x:400, y:400}, {x:0, y:600}], color: "#67becf"},
+		{p:[{x:800,y:0}, {x:800, y:400}, {x:600, y:600}, {x:600, y:200}], color: "#ef3d61"},
+		{p:[{x:600,y:200}, {x:600, y:500}, {x:400, y:400}], color: "#f9f51a"},
+		{p:[{x:400,y:400}, {x:600, y:500}, {x:400, y:600}], color: "#a594c0"},
+		{p:[{x:400,y:400}, {x:400, y:600}, {x:0, y:600}], color: "#fa8ecc"},
+		{p:[{x:800,y:400}, {x:800, y:600}, {x:400, y:600}], color: "#f6ca29"}
+	];
+	window.onload = function(){
+		var canvas = document.getElementById('canvas');
+
+		canvas.width = 800;
+		canvas.height = 600;
+
+		var context = canvas.getContext('2d');
+		if(!context){
+			alert('当前浏览器不支持Canvas， 请更换浏览器');
+			return;
+		}
+
+		for(var i = 0, len = tangram.length; i < len; i++){
+			dram(tangram[i], context);
+		}
+	};
+
+	function dram(args, context){
+		var p = args.p;
+
+		context.beginPath();
+		context.moveTo(p[0].x, p[0].y);
+		for(var i = 1; i < p.length; i++){
+			context.lineTo(p[i].x, p[i].y);
+		}
+		context.closePath();
+
+		context.strokeStyle = "black;";
+		context.lineWidth = 2;
+		context.stroke();
+
+		context.fillStyle = args.color;
+		context.fill();
+
+	};
+</script>
+</body>
+</html>

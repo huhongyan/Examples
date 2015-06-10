@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Canvas学习页面</title>
+<meta name="description" content="Canvas学习页面">
+<meta name="keywords" content="Canvas">
+<link href="" rel="stylesheet">
+</head>
+<body>
+    <canvas id="canvas">
+    	当前浏览器不支持Canvas， 请更换浏览器
+    </canvas>
+
+<script type="text/javascript">
+
+	window.onload = function(){
+		var canvas = document.getElementById('canvas');
+
+		canvas.width = 1000;
+		canvas.height = 600;
+
+		var context = canvas.getContext('2d');
+		if(!context){
+			alert('当前浏览器不支持Canvas， 请更换浏览器');
+			return;
+		}
+
+		//context.arc(
+		// 	conterx, centery, radius,
+		//	startingAngle,	endingAngle,
+		//	anticlockwise(默认false)
+		// );
+
+		context.lineWidth = 5;
+		context.strokeStyle = '#058';
+//		context.arc(300, 300, 200, 0, 2*Math.PI);
+//		context.stroke();
+//
+		for(var i = 0; i < 10; i++){
+			context.beginPath();	//重新开始一条路径，如果上一个还没有封闭，会默认给封闭上一个路径
+			context.arc(50 + i*100, 60, 40, 0, 2*Math.PI*(i + 1)/10);
+			context.closePath();	//如果路径没有封闭起来，closePath就会默认设置一 条封闭的路径
+
+			context.stroke();
+		}
+
+		for(var i = 0; i < 10; i++){
+			context.beginPath();
+			context.arc(50 + i*100, 180, 40, 0, 2*Math.PI*(i + 1)/10);
+
+			context.stroke();
+		}
+
+		context.fillStyle = '#05f';
+		for(var i = 0; i < 10; i++){
+			context.beginPath();
+			context.arc(50 + i*100, 300, 40, 0, 2*Math.PI*(i + 1)/10);
+			context.closePath();	//对于fill方法来说，是否调用closePath都没有关系，都会默认关掉
+
+			context.fill();
+		}
+
+		for(var i = 0; i < 10; i++){
+			context.beginPath();
+			context.arc(50 + i*100, 420, 40, 0, 2*Math.PI*(i + 1)/10);
+
+			context.fill();
+		}
+
+	};
+
+
+</script>
+</body>
+</html>
