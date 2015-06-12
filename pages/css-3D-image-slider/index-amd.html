@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>index</title>
+ 	<script src="../../bower_components/requirejs/require.js" data-main="index-amd"></script>
+    <style type="text/css">
+    	.container{
+    		width: 1000px;
+    		margin: 200px auto;
+    	}
+
+    	#css3dimagePager li {
+    		margin-top: 100px;
+			padding-right: 2em;
+			display: inline-block;
+			cursor: pointer;
+		}
+
+		#css3dimagePager li.active{
+			font-weight: bold;
+		}
+    </style>
+</head>
+<body>
+<div class="container">
+<ul id="css3dimageslider">
+	<li>
+		<img src="img/demo/css3dimg1.jpg">
+	</li>
+	<li>
+		<img src="img/demo/css3dimg2.jpg">
+	</li>
+	<li>
+		<img src="img/demo/css3dimg3.jpg">
+	</li>
+	<li>
+		<img src="img/demo/css3dimg4.jpg">
+	</li>
+</ul>
+<ul id="css3dimagePager">
+	<li class="active">Image 1</li>
+	<li>Image 2</li>
+	<li>Image 3</li>
+	<li>Image 4</li>
+</ul>
+</div>
+
+</body>
+</html>

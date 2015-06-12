@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title>Demo</title>
+  <link href="css/css.css" rel="stylesheet" type="text/css">
+  
+  <style>
+/*Slider CSS*/
+#css3dimagePager, #css3dtransparency {
+	text-align: center;
+	position: relative;
+	z-index: 11;
+	padding: 0 0 10px;
+	margin: 0;
+}
+#css3dimagePager li {
+	padding-right: 2em;
+	display: inline-block;
+	cursor: pointer;
+}
+#css3dimagePager li.active, #css3dtransparency.active {
+	font-weight: bold;
+}
+#css3dimageslider {
+	-webkit-perspective: 800;
+	-moz-perspective: 800px;
+	-ms-perspective: 800;
+	perspective: 800;
+	-webkit-perspective-origin: 50% 100px;
+	-moz-perspective-origin: 50% 100px;
+	-ms-perspective-origin: 50% 100px;
+	perspective-origin: 50% 100px;
+	margin: 100px auto 20px auto;
+	width: 450px;
+	height: 400px;
+}
+#css3dimageslider ul {
+	position: relative;
+	margin: 0 auto;
+	height: 281px;
+	width: 450px;
+	list-style: none;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-origin: 50% 100px 0;
+	-moz-transform-origin: 50% 100px 0;
+	-ms-transform-origin: 50% 100px 0;
+	transform-origin: 50% 100px 0;
+	-webkit-transition: all 1.0s ease-in-out;
+	-moz-transition: all 1.0s ease-in-out;
+	-ms-transition: all 1.0s ease-in-out;
+	transition: all 1.0s ease-in-out;
+}
+#css3dimageslider ul li {
+	position: absolute;
+	height: 281px;
+	width: 450px;
+	padding: 0px;
+}
+#css3dimageslider ul li:nth-child(1) {
+	-webkit-transform: translateZ(225px);
+	-moz-transform: translateZ(225px);
+	-ms-transform: translateZ(225px);
+	transform: translateZ(225px);
+}
+#css3dimageslider ul li:nth-child(2) {
+	-webkit-transform: rotateY(90deg) translateZ(225px);
+	-moz-transform: rotateY(90deg) translateZ(225px);
+	-ms-transform: rotateY(90deg) translateZ(225px);
+	transform: rotateY(90deg) translateZ(225px);
+}
+#css3dimageslider ul li:nth-child(3) {
+	-webkit-transform: rotateY(180deg) translateZ(225px);
+	-moz-transform: rotateY(180deg) translateZ(225px);
+	-ms-transform: rotateY(180deg) translateZ(225px);
+	transform: rotateY(180deg) translateZ(225px);
+}
+#css3dimageslider ul li:nth-child(4) {
+	-webkit-transform: rotateY(-90deg) translateZ(225px);
+	-moz-transform: rotateY(-90deg) translateZ(225px);
+	-ms-transform: rotateY(-90deg) translateZ(225px);
+	transform: rotateY(-90deg) translateZ(225px);
+}
+#css3dimageslider.transparency img {
+	opacity: 0.7;
+}
+</style>
+  <script src="js/jquery.js"></script>
+  <script>
+    $(document).ready(function() {
+
+      $("#css3dimagePager li").click(function(){
+		 var rotateY = ($(this).index() * -90); 
+		$("#css3dimageslider ul").css({"-webkit-transform":"rotateY("+rotateY+"deg)", "-moz-transform":"rotateY("+rotateY+"deg)", "-ms-transform":"rotateY("+rotateY+"deg)", "transform":"rotateY("+rotateY+"deg)"});
+        $("#css3dimagePager li").removeClass("active");
+        $(this).addClass("active");
+      });
+
+      $("#css3dtransparency").click(function() {
+        $("#css3dimageslider").toggleClass("transparency");
+        $(this).toggleClass("active");
+      });
+
+    });
+  </script>
+  </head>
+
+  <body>
+	
+		<section class="clearfix">
+					<h2>CSS 3D 盒子效果</h2>
+					<p>这个可以用在一个空间有限地方</p>
+					<section>
+						<div id="css3dimageslider" class="transparency">
+									<ul>
+										<li> <img src="img/demo/css3dimg1.jpg"> </li>
+										<li> <img src="img/demo/css3dimg2.jpg"> </li>
+										<li> <img src="img/demo/css3dimg3.jpg"> </li>
+										<li> <img src="img/demo/css3dimg4.jpg"> </li>
+								</ul>
+							</div>
+						<ul id="css3dimagePager">
+									<li class="active">Image 1</li>
+									<li>Image 2</li>
+									<li>Image 3</li>
+									<li>Image 4</li>
+							</ul>
+						<p id="css3dtransparency" class="active">点击这里开启透明</p>
+				</section>
+			</section>
+
+</body>
+</html>

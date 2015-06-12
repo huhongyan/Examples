@@ -34,4 +34,22 @@
 			"href": "/Example/pages/TodoMVC/index.html"
 		}
 	]
+},{
+	"icon": "fa fa-th-list",
+	"title": "Circle Hover Effects",
+	"subMenus": [
+		{
+			"title": "Demos",
+			"href": "/Example/pages/CircleHoverEffects/index.html"
+		}
+	]
+},{
+	"icon": "fa fa-th-list",
+	"title": "3D Image Slider",
+	"subMenus": [
+		{
+			"title": "3D image slider",
+			"href": "/Example/pages/css-3D-image-slider/index-amd.html"
+		}
+	]
 }]

@@ -1,0 +1,29 @@
+.css3dimageslider{
+	-webkit-perspective-origin: 50% 100px;
+  	-moz-perspective-origin: 50% 100px;
+  	-ms-perspective-origin: 50% 100px;
+  	perspective-origin: 50% 100px;
+  	margin: 0;
+  	padding: 0;
+ }
+
+.css3dimageslider ul{
+	position: relative;
+	margin: 0 auto;
+	list-style: none;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-transform-origin: 50% 100px 0;
+	-moz-transform-origin: 50% 100px 0;
+	-ms-transform-origin: 50% 100px 0;
+	transform-origin: 50% 100px 0;
+	-webkit-transition: all 1.0s ease-in-out;
+	-moz-transition: all 1.0s ease-in-out;
+	-ms-transition: all 1.0s ease-in-out;
+	transition: all 1.0s ease-in-out;
+}
+.css3dimageslider ul li{
+	position: absolute;
+}
