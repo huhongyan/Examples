@@ -45,11 +45,38 @@
 	]
 },{
 	"icon": "fa fa-th-list",
+	"title": "3D Hover Effects",
+	"subMenus": [
+		{
+			"title": "Demos",
+			"href": "/Example/pages/3DHoverEffects/index.html"
+		}
+	]
+},{
+	"icon": "fa fa-th-list",
 	"title": "3D Image Slider",
 	"subMenus": [
 		{
 			"title": "3D image slider",
 			"href": "/Example/pages/css-3D-image-slider/index-amd.html"
+		}
+	]
+},{
+	"icon": "fa fa-th-list",
+	"title": "Animate.css",
+	"subMenus": [
+		{
+			"title": "Animate.css 效果示例",
+			"href": "https://daneden.github.io/animate.css/"
+		}
+	]
+},{
+	"icon": "fa fa-th-list",
+	"title": "图片剪裁",
+	"subMenus": [
+		{
+			"title": "图片剪裁 demos",
+			"href": "http://deepliquid.com/projects/Jcrop/demos.php"
 		}
 	]
 }]

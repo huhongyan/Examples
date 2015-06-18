@@ -68,6 +68,7 @@ define([
             this.pageContainer.get(0).src = $target.data('href');
 
             //进度条..
+            this.pageContainer.on('');
 
             // this.pageContainer
         },

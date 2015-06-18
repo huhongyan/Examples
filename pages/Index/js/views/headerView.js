@@ -18,6 +18,10 @@ define([
             return this;
         } ,
         events: {
+            "click #sidebar-collapse": "leftNavBarCollapse"
         },
+        leftNavBarCollapse: function(e){
+            $('#accordion').toggleClass('menu-compact');
+        }
     });
 });

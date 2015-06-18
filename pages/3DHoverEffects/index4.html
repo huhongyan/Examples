@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>3D Thumbnail Hover Effects</title>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/style_common.css" />
+        <link rel="stylesheet" type="text/css" href="css/style4.css" />
+
+		<script type="text/javascript" src="js/modernizr.custom.69142.js"></script> 
+
+    </head>
+    <body>
+        <div class="container">
+			
+			
+			<header>
+			
+					<h1><span>3D Thumbnail</span> 鼠标经过特效</h1>
+				<h2>用到局部块上 &mdash; <strong>可以查看局部一下基本属性，还可以点击更多等</strong></h2>
+				
+				<nav class="codrops-demos">
+					<a href="index.html">Demo 1</a>
+					<a href="index2.html">Demo 2</a>
+					<a href="index3.html">Demo 3</a>
+					<a class="current-demo" href="index4.html">Demo 4</a>
+					<a href="index5.html">Demo 5</a>
+				</nav>
+				
+				<div class="support-note"><!-- let's check browser support with modernizr -->
+					<!--span class="no-cssanimations">CSS animations are not supported in your browser</span-->
+					<span class="no-csstransforms">CSS transforms are not supported in your browser</span>
+					<span class="no-csstransforms3d">CSS 3D transforms are not supported in your browser</span>
+					<span class="no-csstransitions">CSS transitions are not supported in your browser</span>
+					<span class="note-ie">Sorry, only modern browsers.</span>
+				</div>
+				
+			</header>
+
+            <div id="grid" class="main">
+				<div class="view">
+					<div class="view-back">
+						<span data-icon="A">566</span>
+						<span data-icon="B">124</span>
+						<a href="#">&rarr;</a>
+					</div>
+					<img src="images/3.jpg" />
+				</div>
+				<div class="view">
+					<div class="view-back">
+						<span data-icon="A">210</span>
+						<span data-icon="B">102</span>
+						<a href="#">&rarr;</a>
+					</div>
+					<img src="images/4.jpg" />
+				</div>
+				<div class="view">
+					<div class="view-back">
+						<span data-icon="A">690</span>
+						<span data-icon="B">361</span>
+						<a href="#">&rarr;</a>
+					</div>
+					<img src="images/5.jpg" />
+				</div>
+				<div class="view">
+					<div class="view-back">
+						<span data-icon="A">987</span>
+						<span data-icon="B">130</span>
+						<a href="#">&rarr;</a>
+					</div>
+					<img src="images/6.jpg" />
+				</div>
+			</div>
+        </div>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script type="text/javascript">	
+			
+			Modernizr.load({
+				test: Modernizr.csstransforms3d && Modernizr.csstransitions,
+				yep : ['js/jquery.hoverfold.js'],
+				nope: 'css/fallback.css',
+				callback : function( url, result, key ) {
+						
+					if( url === 'js/jquery.hoverfold.js' ) {
+						$( '#grid' ).hoverfold();
+					}
+
+				}
+			});
+				
+		</script>
+    </body>
+</html>

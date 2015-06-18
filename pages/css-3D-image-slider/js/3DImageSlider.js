@@ -123,9 +123,9 @@
 
 		                var pageX = $target.data('pageX') - e.pageX;
 
-		                if(pageX < 0){
+		                if(pageX < -10){
 		                    _self.slideToRight(1, callback);
-		                }else {
+		                }else if(pageX > 10){
 		                    _self.slideToLeft(1, callback);
 		                } 
 		            }); 
