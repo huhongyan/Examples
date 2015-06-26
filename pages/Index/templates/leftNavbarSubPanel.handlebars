@@ -2,7 +2,7 @@
 {{#each menus}}
 <div class="panel">
     <div class="panel-heading" role="tab" id="menus_{{@index}}">
-        <a class="panel-title collapsed {{#unless this.subMenus}}alone{{/unless}}" data-href="{{href}}" data-toggle="collapse" data-parent=".panel-group" href="#menus_{{@index}}_content" aria-expanded="true" aria-controls="menus_{{@index}}_content"><i class="{{icon}}"></i><span class="menu-text">{{this.title}}</span>{{#if this.subMenus}}<i class="glyphicon glyphicon-menu-down pull-right"></i>{{/if}}
+        <a class="panel-title collapsed {{#unless this.subMenus}}alone{{/unless}}" data-href="{{href}}" data-toggle="collapse" data-parent=".panel-group" href="#menus_{{@index}}_content" aria-expanded="true" aria-controls="menus_{{@index}}_content"><i class="{{icon}}"></i><span class="menu-text">&nbsp;&nbsp;{{this.title}}</span>{{#if this.subMenus}}<i class="glyphicon glyphicon-menu-down pull-right"></i>{{/if}}
         </a>
     </div>
     <ul id="menus_{{@index}}_content" class="panel-collapse collapse nav-left-sub" role="tabpanel" aria-labelledby="menus_{{@index}}">

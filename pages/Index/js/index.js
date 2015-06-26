@@ -6,11 +6,11 @@ require([
     	$(window).resize(function(){
     		setHeight();
     		//滚动条 -- 在每次窗口变化时重新渲染
-	    	$('#leftNavbarGroup').mCustomScrollbar({
-	    		axis: "y",
-	    		theme: "minimal-dark",
-	    		scrollbarPosition: "outside"
-	    	});
+	    	// $('#leftNavbarGroup').mCustomScrollbar({
+	    	// 	axis: "y",
+	    	// 	theme: "minimal-dark",
+	    	// 	scrollbarPosition: "outside"
+	    	// });
     	});
 
     	//隐藏侧边栏事件
