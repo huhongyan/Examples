@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<title>note1</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+    <link rel="stylesheet" href="/Example/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="note.css">
+</head>
+<body>
+
+<article class="container articlewenzi2">
+    <h3>
+        1、三大组建
+    </h3>
+    <p>
+        在Three.js中，要渲染物体到网页中，我们需要3个组建：场景（scene）、相机（camera）和渲染器（renderer）。
+        有了这三样东西，才能将物体渲染到网页中去。
+    </p>
+    <h3>
+        2、场景
+    </h3>
+    <p>
+        在Threejs中场景就只有一种，用THREE.Scene来表示，要构件一个场景也很简单，只要new一个对象就可以了，代码如下：
+    </p>
+    <p>
+        var scene = new THREE.Scene();
+    </p>
+    <p>
+        场景是所有物体的容器，如果要显示一个苹果，就需要将苹果对象加入场景中。
+    </p>
+    <h3>
+        3、相机
+    </h3>
+    <p>
+        另一个组建是相机，相机决定了场景中那个角度的景色会显示出来。相机就像人的眼睛一样，人站在不同位置，抬头或者低头都能够看到不同的景色。
+    </p>
+    <p>
+        在Threejs中有多种相机，透视相机（THREE.PerspectiveCamera）只是其中一种。
+    </p>
+    <h3>
+        4、渲染器
+    </h3>
+    <p>
+        最后一步就是设置渲染器，渲染器决定了渲染的结果应该画在页面的什么元素上面，并且以怎样的方式来绘制。这里我们定义了一个WebRenderer渲染器，代码如下所示：
+    </p>
+
+    <div class="syntax">
+        <div class="numbers-column">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </div>
+        <div class="code-column">
+            <table>
+                <tbody>
+                <tr><td class="source"><span class="javascript"><span class="keyword">var</span> renderer <span class="operator">=</span> <span class="keyword">new</span> <span class="type">THREE</span>.<span class="type">WebGLRenderer</span>();
+</span></td></tr>
+                <tr><td class="source"><span class="javascript">renderer.<span class="function">setSize</span>(window.innerWidth, window.innerHeight);
+</span></td></tr>
+                <tr><td class="source"><span class="javascript">document.body.<span class="function">appendChild</span>(renderer.domElement);
+</span></td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <h3>
+        5、添加物体到场景中
+    </h3>
+    <p>
+        那现在，我们将一个物体添加到场景中：
+    </p>
+    <div class="syntax"><div class="numbers-column"><div class="line ln1">1</div><div class="line ln2">2</div><div class="line ln3">3</div><div class="line ln4">4</div></div><div class="code-column"><table><tbody><tr><td class="source javascript alt"><span class="javascript"><span class="keyword">var</span> geometry <span class="operator">=</span> <span class="keyword">new</span> <span class="type">THREE</span>.<span class="function">CubeGeometry</span>(<span class="constant">1</span>,<span class="constant">1</span>,<span class="constant">1</span>);
+</span></td></tr><tr><td class="source"><span><span class="keyword">var</span> material <span class="operator">=</span> <span class="keyword">new</span> <span class="type">THREE</span>.<span class="type">MeshBasicMaterial</span>({color: <span class="constant">0x00ff00</span>});
+</span></td></tr><tr><td class="source"><span><span class="keyword">var</span> cube <span class="operator">=</span> <span class="keyword">new</span> <span class="type">THREE</span>.<span class="type">Mesh</span>(geometry, material);
+</span></td></tr><tr><td class="source"><span>scene.<span class="function">add</span>(cube);
+</span></td></tr></tbody></table></div></div>
+    <p>
+        代码中出现了THREE.CubeGeometry，THREE.CubeGeometry是一个几何体。
+    </p>
+    <h3>
+        6、渲染
+    </h3>
+    <p>
+        渲染应该使用渲染器，结合相机和场景来得到结果画面。实现这个功能的函数是
+    </p>
+    <p>
+        renderer.render(scene, camera);
+    </p>
+    <p>
+        渲染函数的原型如下：
+    </p>
+    <p>
+        render( scene, camera, renderTarget, forceClear )
+    </p>
+    <h3>
+        7、渲染循环
+    </h3>
+    <p>
+        渲染有两种方式：实时渲染和离线渲染 。
+    </p>
+    <p>
+        实时渲染：就是需要不停的对画面进行渲染，即使画面中什么也没有改变，也需要重新渲染。下面就是一个渲染循环：
+    </p>
+    <div class="syntax"><div class="numbers-column"><div class="line ln1">1</div><div class="line ln2">2</div><div class="line ln3">3</div><div class="line ln4">4</div><div class="line ln5">5</div><div class="line ln6">6</div></div><div class="code-column"><table><tbody><tr><td class="source javascript alt"><span class="javascript"><span class="keyword">function</span> <span class="function">render</span>() {
+</span></td></tr><tr><td class="source javascript"><span class="javascript">    cube.rotation.x <span class="operator">+</span><span class="operator">=</span> <span class="constant">0.1</span>;
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript">    cube.rotation.y <span class="operator">+</span><span class="operator">=</span> <span class="constant">0.1</span>;
+</span></td></tr><tr><td class="source javascript"><span class="javascript">    renderer.<span class="function">render</span>(scene, camera);
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript">    <span class="function">requestAnimationFrame</span>(render);
+</span></td></tr><tr><td class="source javascript"><span class="javascript">}
+</span></td></tr></tbody></table></div></div>
+    <p>
+        其中一个重要的函数是requestAnimationFrame，这个函数就是让浏览器去执行一次参数中的函数，这样通过上面render中调用requestAnimationFrame()函数，requestAnimationFrame()函数又让rander()再执行一次，就形成了我们通常所说的游戏循环了。
+    </p>
+    <br/>
+
+</article>
+
+</body>
+</html>

@@ -20,7 +20,8 @@ require.config({
     	"bootstrap": "bower_components/bootstrap/dist/js/bootstrap.min",
     	"Font-Awesome":"bower_components/Font-Awesome/css/font-awesome.min",
     	"mCustomScrollbar": "bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min",
-        "jquery.mousewheel": "bower_components/jquery-mousewheel/jquery.mousewheel.min"
+        "jquery.mousewheel": "bower_components/jquery-mousewheel/jquery.mousewheel.min",
+        "Threejs": "bower_components/three.js/build/three.min"
     }, 
     shim: { 
         'bootstrap': [
@@ -39,6 +40,9 @@ require.config({
             deps: ['underscore', 'jquery'],
             exports: 'Backbone'
         },
-        "backbone.localStorage": ['backbone']
+        "backbone.localStorage": ['backbone'],
+        "Threejs":{
+            exports: "THREE"
+        }
     } 
 });

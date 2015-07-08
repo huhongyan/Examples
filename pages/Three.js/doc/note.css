@@ -1,0 +1,65 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 0;
+}
+body {
+    width: 100%;
+    margin: 0 auto;
+    font-family: '微软雅黑';
+    font-weight: lighter;
+}
+.articlewenzi2 h3 {
+    font-size: 20px;
+    font-weight: bold;
+}
+.articlewenzi2 p {
+    text-indent: 2em;
+    color: #333333;
+    font-size: 16px;
+    line-height: 26px;
+}
+.syntax {
+    font-family: "Bitstream Vera Sans Mono", "Courier", monospace;
+    line-height: 1.5em;
+    background: url("noise.png");
+    border: 1px solid #dddddd;
+    padding: 2px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+.numbers-column {
+    padding: 6pt;
+    background-color: rgba(0, 0, 0, 0.05);
+    float: left;
+    text-align: right;
+    margin-right: 0em;
+    width: 3em;
+}
+.numbers-column div {
+    padding: 0 0.4em 0 !important;
+}
+.code-column {
+    padding: 6pt;
+    overflow: auto;
+}
+.code-column table {
+    border-collapse: collapse;
+    width: 100%;
+    white-space: pre;
+}
+.code-column .source {
+    margin: auto !important;
+    padding: 0 0.4em 0 !important;
+}
+.keyword {
+    color: #cb4b16;
+}
+.operator, .type {
+    color: #268bd2;
+}
+.function {
+    color: #3333ff;
+}

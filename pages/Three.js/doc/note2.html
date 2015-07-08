@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<title>note2</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+    <link rel="stylesheet" href="/Example/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="note.css">
+</head>
+<body>
+
+<article class="container articlewenzi2">
+    <h3>
+        1、在Threejs中定义一个点
+    </h3>
+    <p>
+        在三维空间中的某一个点可以用一个坐标点来表示。一个坐标点由x,y,z三个分量构成。在three.js中，点可以在右手坐标系中表示。
+        ( x轴正方向向右，y轴正方向向上，z轴由屏幕从里向外 )
+    </p>
+    <p>
+        空间几何中，点可以用一个向量来表示，在Three.js中也是用一个向量来表示的，代码如下所示：
+    </p>
+    <div class="fixed syntax highlighted"><div class="numbers-column"><div class="line ln1">1</div><div class="line ln2">2</div><div class="line ln3">3</div><div class="line ln4">4</div><div class="line ln5">5</div><div class="line ln6">6</div><div class="line ln7">7</div></div><div class="code-column"><table><tbody><tr><td class="source javascript alt"><span class="javascript"><span class="type">THREE</span>.<span class="type">Vector3</span> <span class="operator">=</span> <span class="function">function</span> ( x, y, z ) {
+</span></td></tr><tr><td class="source javascript"><span class="javascript">
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript"><span class="constant">this</span>.x <span class="operator">=</span> x <span class="operator">|</span><span class="operator">|</span> <span class="constant">0</span>;
+</span></td></tr><tr><td class="source javascript"><span class="javascript"><span class="constant">this</span>.y <span class="operator">=</span> y <span class="operator">|</span><span class="operator">|</span> <span class="constant">0</span>;
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript"><span class="constant">this</span>.z <span class="operator">=</span> z <span class="operator">|</span><span class="operator">|</span> <span class="constant">0</span>;
+</span></td></tr><tr><td class="source javascript"><span class="javascript">
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript">};</span></td></tr></tbody></table></div></div>
+    <h3>
+        2、点的操作
+    </h3>
+    <p>
+        在3D世界中点可以用THREE.Vector3D来表示。
+    </p>
+    <h3>
+        3、关于线条
+    </h3>
+    <p>
+        在Threejs中，一条线由点，材质和颜色组成。
+    </p>
+</article>
+</body>
+</html>

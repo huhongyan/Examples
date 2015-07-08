@@ -79,4 +79,21 @@
 			"href": "http://deepliquid.com/projects/Jcrop/demos.php"
 		}
 	]
+},{
+  "icon": "fa fa-th-list",
+  "title": "Three.js学习",
+  "subMenus": [
+	{
+	  "title": "Three.js学习笔记1",
+	  "href": "/Example/pages/Three.js/doc/note1.html"
+	},
+	{
+	  "title": "Three.js练习1",
+	  "href": "/Example/pages/Three.js/index.html"
+	},
+	{
+	  "title": "Three.js学习笔记2",
+	  "href": "/Example/pages/Three.js/doc/note2.html"
+	}
+  ]
 }]
