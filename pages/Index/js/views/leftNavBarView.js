@@ -1,13 +1,15 @@
 "use strict";
 define([
     "jquery",
+    "json!pages/Index/menus.json",
     "backbone",
     'handlebars.runtime',
     "pages/Index/templates/templates.amd",
     "../collection/menus.js",
+    "NProgress",
     "mCustomScrollbar",
     "domReady!"
-],function($, Backbone, Handlebars, templates, Menus){
+],function($, menus, Backbone, Handlebars, templates, Menus, NProgress){
 
     return Backbone.View.extend({
         template: templates.leftNavbar,
@@ -22,18 +24,28 @@ define([
         },
         render:function(){
             var self = this;
-            this.collection.fetch({
-                success : function(collection){
-                    self.$list.html(templates.leftNavbarSubPanel({'menus': collection.toJSON()}));
-                    self.resize();
+            //this.collection = menus;
+            self.$list.html(templates.leftNavbarSubPanel({'menus': menus}));
+            self.resize();
 
-                    self.$list.mCustomScrollbar({
-                        axis: "y",
-                        theme: "minimal-dark",
-                        scrollbarPosition: "outside"
-                    });
-                }
-            }, {reset: true});
+            self.$list.mCustomScrollbar({
+                axis: "y",
+                theme: "minimal-dark",
+                scrollbarPosition: "outside"
+            });
+
+            //this.collection.fetch({
+            //    success : function(collection){
+            //        self.$list.html(templates.leftNavbarSubPanel({'menus': collection.toJSON()}));
+            //        self.resize();
+            //
+            //        self.$list.mCustomScrollbar({
+            //            axis: "y",
+            //            theme: "minimal-dark",
+            //            scrollbarPosition: "outside"
+            //        });
+            //    }
+            //}, {reset: true});
 
             return this;
         } ,
@@ -68,7 +80,12 @@ define([
             this.pageContainer.get(0).src = $target.data('href');
 
             //进度条..
-            this.pageContainer.on('');
+            NProgress.configure({
+                parent: '#page-container'
+            }).start();
+            this.pageContainer.on('load', function(){
+                NProgress.done();
+            });
 
             // this.pageContainer
         },

@@ -1,9 +1,9 @@
 [{
 	"icon": "fa fa-th-list",
-	"title": "Validate",
+	"title": "自定义的插件",
 	"subMenus": [
 		{
-			"title": "Validate Demo",
+			"title": "Validate",
 			"href": "/Example/lib/validate/index.html"
 		}
 	]
@@ -36,55 +36,35 @@
 	]
 },{
 	"icon": "fa fa-th-list",
-	"title": "Circle Hover Effects",
+	"title": "收藏的东西",
 	"subMenus": [
 		{
-			"title": "Demos",
+			"title": "Circle Hover Effects",
 			"href": "/Example/pages/CircleHoverEffects/index.html"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "3D Hover Effects",
-	"subMenus": [
-		{
-			"title": "Demos",
+		},
+	  	{
+			"title": "3D Hover Effects",
 			"href": "/Example/pages/3DHoverEffects/index.html"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "3D Image Slider",
-	"subMenus": [
+	  	},
 		{
-			"title": "3D image slider",
-			"href": "/Example/pages/css-3D-image-slider/index-amd.html"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "Animate.css",
-	"subMenus": [
-		{
+		  	"title": "3D Image Slider",
+		  	"href": "/Example/pages/css-3D-image-slider/index-amd.html"
+		},
+	  	{
 			"title": "Animate.css 效果示例",
 			"href": "https://daneden.github.io/animate.css/"
-		}
-	]
-},{
-	"icon": "fa fa-th-list",
-	"title": "图片剪裁",
-	"subMenus": [
-		{
+	  	},
+	  	{
 			"title": "图片剪裁 demos",
 			"href": "http://deepliquid.com/projects/Jcrop/demos.php"
-		}
+	  	}
 	]
 },{
   "icon": "fa fa-th-list",
   "title": "Three.js学习",
   "subMenus": [
 	{
-	  "title": "Three.js学习笔记1",
+	  "title": "Three.js学习笔记-基本认识",
 	  "href": "/Example/pages/Three.js/doc/note1.html"
 	},
 	{
@@ -92,8 +72,41 @@
 	  "href": "/Example/pages/Three.js/index.html"
 	},
 	{
-	  "title": "Three.js学习笔记2",
+	  "title": "Three.js学习笔记-点",
 	  "href": "/Example/pages/Three.js/doc/note2.html"
+	},
+	{
+	  "title": "Three.js练习2",
+	  "href": "/Example/pages/Three.js/index2.html"
+	},
+	{
+	  "title": "Three.js学习笔记-运动",
+	  "href": "/Example/pages/Three.js/doc/note3.html"
+	},
+	{
+	  "title": "Three.js练习3",
+	  "href": "/Example/pages/Three.js/index3.html"
+	},
+	{
+	  "title": "Three.js学习笔记-相机",
+	  "href": "/Example/pages/Three.js/doc/note4.html"
+	},
+	{
+	  "title": "Three.js学习笔记-光源",
+	  "href": "/Example/pages/Three.js/doc/note5.html"
+	},
+	{
+	  "title": "Three.js学习笔记-纹理",
+	  "href": "/Example/pages/Three.js/doc/note6.html"
+	}
+  ]
+},{
+  "icon": "fa fa-th-list",
+  "title": "css学习笔记",
+  "subMenus": [
+	{
+	  "title": "Color",
+	  "href": "/Example/pages/css-learning-notes/doc/note1.html"
 	}
   ]
 }]

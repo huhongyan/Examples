@@ -11,6 +11,9 @@ body {
     font-family: '微软雅黑';
     font-weight: lighter;
 }
+footer{
+    margin-bottom: 20px;
+}
 .articlewenzi2 h3 {
     font-size: 20px;
     font-weight: bold;

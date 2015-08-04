@@ -11,6 +11,8 @@ require.config({
     	"jquery": "bower_components/jquery/dist/jquery.min",
     	"domReady": "bower_components/domReady/domReady",
     	"require-css": "bower_components/require-css/css.min",
+        "json": "bower_components/requirejs-json/json",
+        "text": "bower_components/requirejs-text/text",
     	"handlebars": "bower_components/handlebars/handlebars.min",
     	"handlebars.runtime": "bower_components/handlebars/handlebars.runtime.amd.min",
         "underscore":"bower_components/underscore/underscore-min",
@@ -21,9 +23,13 @@ require.config({
     	"Font-Awesome":"bower_components/Font-Awesome/css/font-awesome.min",
     	"mCustomScrollbar": "bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min",
         "jquery.mousewheel": "bower_components/jquery-mousewheel/jquery.mousewheel.min",
-        "Threejs": "bower_components/three.js/build/three.min"
+        "NProgress": "bower_components/nprogress/nprogress",
+        "Threejs": "bower_components/three.js/build/three.min",
+        "Statsjs": "bower_components/stats.js/build/stats.min",
+        "Tweenjs": "bower_components/tween.js/build/tween.min"
     }, 
-    shim: { 
+    shim: {
+        'json': ['text'],
         'bootstrap': [
             "jquery",
             "require-css!bower_components/bootstrap/dist/css/bootstrap.min.css"
@@ -41,8 +47,18 @@ require.config({
             exports: 'Backbone'
         },
         "backbone.localStorage": ['backbone'],
+        "NProgress": {
+            deps: ['require-css!bower_components/nprogress/nprogress.css'],
+            exports: 'NProgress'
+        },
         "Threejs":{
             exports: "THREE"
+        },
+        "Statsjs":{
+            exports: "Stats"
+        },
+        "Tweenjs":{
+            exports: "TWEEN"
         }
     } 
 });

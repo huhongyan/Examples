@@ -305,7 +305,8 @@ body {
   width: 8px;
 }
 .left-navbar-hidden #page-container {
-  padding-left: 50px;
+  left: 10px;
+  width: calc(100% - 10px);
 }
 .left-navbar-hidden .navbar-nav-left {
   -webkit-transform: translateX(-220px);
@@ -314,13 +315,14 @@ body {
 }
 #page-container {
   position: absolute;
-  top: 0;
-  height: 100%;
-  width: 100%;
+  top: 50px;
+  left: 230px;
+  height: calc(100% - 50px);
+  width: calc(100% - 220px - 10px);
   margin: 0;
-  padding: 50px 0 0 230px;
+  padding: 0;
   overflow-y: hidden;
-  -webkit-transition: padding 0.7s ease-out 0s;
-  -moz-transition: padding 0.7s ease-out 0s;
-  transition: padding 0.7s ease-out 0s;
+  -webkit-transition: all 0.7s ease-out 0s;
+  -moz-transition: all 0.7s ease-out 0s;
+  transition: all 0.7s ease-out 0s;
 }

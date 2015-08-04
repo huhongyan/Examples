@@ -113,20 +113,16 @@ require([
             //p2.y += 1;
             //p2.z -= 1;
 
-            //if(line.position.x){
-                if(line.position.xp){
-                    line.position.x += 1;
-                }else{
-                    line.position.x -= 1
-                }
-                if(line.position.x >= 360){
-                    line.position.xp = 0;
-                }else if(line.position.x <= -360){
-                    line.position.xp = 1;
-                }
-            //}else{
-            //    line.position.x = 1
-            //}
+            if(line.position.xp){
+                line.position.x += 0.5;
+            }else{
+                line.position.x -= 0.5
+            }
+            if(line.position.x >= 360){
+                line.position.xp = 0;
+            }else if(line.position.x <= -360){
+                line.position.xp = 1;
+            }
 
 
             line.rotation.y = line.position.x * Math.PI / 180;
