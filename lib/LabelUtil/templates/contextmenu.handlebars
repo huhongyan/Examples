@@ -1,0 +1,14 @@
+<ul class="list-group J-contextmenu" tabindex="-1">
+	<li class="list-group-item J-setting"> <i class="fa fa-cogs"></i> Setting</li>
+	{{#if isContainer}}
+	<li class="list-group-item hide J-copy"> <i class="fa fa-copy"></i> Copy <span class="badge">ctrl+drag</span></li>
+	<li class="list-group-item hide J-del"> <i class="fa fa-trash-o"></i> Delete <span class="badge">ctrl+d / Delete</span></li>
+	<li class="list-group-item hide J-up"> <i class="fa fa-level-up"></i> up <span class="badge">ctrl+↑</span></li>
+	<li class="list-group-item hide J-down"> <i class="fa fa-level-down"></i> down <span class="badge">ctrl+↓</span></li>
+	{{else}}
+	<li class="list-group-item show J-copy"> <i class="fa fa-copy"></i> Copy <span class="badge">ctrl+drag</span></li>
+	<li class="list-group-item show J-del"> <i class="fa fa-trash-o"></i> Delete <span class="badge">ctrl+d / Delete</span></li>
+	<li class="list-group-item show J-up"> <i class="fa fa-level-up"></i> up <span class="badge">ctrl+↑</span></li>
+	<li class="list-group-item show J-down"> <i class="fa fa-level-down"></i> down <span class="badge">ctrl+↓</span></li>
+	{{/if}}
+</ul>

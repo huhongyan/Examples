@@ -1,0 +1,16 @@
+@charset "utf-8";
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border: 0;
+}
+body {
+    width: 100%;
+    margin: 0 auto;
+    font-family: '微软雅黑';
+    font-weight: lighter;
+}
+footer{
+    margin-bottom: 20px;
+}

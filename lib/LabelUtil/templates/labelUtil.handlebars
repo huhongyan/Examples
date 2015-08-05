@@ -1,0 +1,177 @@
+<!-- 顶部工具栏 -->
+<nav class="navbar navbar-default">
+    <ul class="nav navbar-nav">
+        <li class="nav-wz">
+            <span style="position: relative; padding: 15px 0; margin-left: 10px;">
+                <i class="fa fa-arrow-right" style="margin-left: 20px;"></i>
+                <i class="fa fa-arrow-left" style="margin-left: -20px;"></i>
+                <i class="fa fa-arrow-up" style="margin-top: -13px;"></i>
+                <i class="fa fa-arrow-down" style="margin-top: 13px;"></i>
+            </span>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Paper Size <span class="caret"></span></a>
+            <ul class="dropdown-menu paper-size">
+                <li class="J-size-60X30 {{#xif 'this.paperSize == "60X30"'}}active{{/xif}}" data-paperSize="60X30"><a href="javascript:;" class="J-pSize" data-width="60mm" data-height="30mm"> 60mmX30mm </a></li>
+                <li class="J-size-100X50 {{#xif 'this.paperSize == "100X50"'}}active{{/xif}}" data-paperSize="100X50"><a href="javascript:;" class="J-pSize" data-width="100mm" data-height="50mm"> 100mmX50mm </a></li>
+                <li class="J-size-102X152 {{#xif 'this.paperSize == "102X152"'}}active{{/xif}}" data-paperSize="102X152"><a href="javascript:;" class="J-pSize" data-width="102mm" data-height="152mm"> 102mmX152mm </a></li>
+            </ul>
+        </li>
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shapes <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="javascript:;" class="J-horizontal"> <i class="fa fa-arrows-h"></i> Horizontal Line</a></li>
+                <li><a href="javascript:;" class="J-vertical"> <i class="fa fa-arrows-v"></i> Vertical Line</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="javascript:;" class="J-rectangle"> <i class="fa fa-square-o"></i> Outlined Rectangle</a></li>
+                <li><a href="javascript:;" class="J-rectangle filled"> <i class="fa fa-square"></i> Filled Rectangle</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="javascript:;" class="J-add-img"> <i class="fa fa-image"></i> Img</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="javascript:;" class="J-add-text"> <i class="fa fa-font"></i> Text</a></li>
+            </ul>
+        </li>
+        <li class="text">
+            <span>width: </span>
+            <input type="number" min="1" class="form-control" name="width">
+        </li>
+        <li class="text">
+            <span>height: </span>
+            <input type="number" min="1" class="form-control" name="height">
+        </li>
+        <li class="text">
+            <span>top: </span>
+            <input type="number" min="0" class="form-control" name="top">
+        </li>
+        <li class="text">
+            <span>left: </span>
+            <input type="number" min="0" class="form-control" name="left">
+        </li>
+        <li class="text">
+            <span>font-size: </span>
+            <input type="number" min="1" class="form-control" style="width:45px;" name="fontSize">
+        </li>
+        <li class="cgcz">
+            <div>
+                <input type="checkbox" name="fontWeight" value="bold"><!--
+                    --><i class="fa fa-bold"></i><!--
+                    --><input type="checkbox" name="fontStyle" value="italic"><!--
+                    --><i class="fa fa-italic"></i><!--
+                    --><input type="checkbox" name="textDecoration" value="underline"><!--
+                --><i class="fa fa-underline"></i>
+            </div>
+            <div>
+                    <input type="radio" name="textAlign" value="left"><!--
+                    --><i class="fa fa-align-left"></i><!--
+                    --><input type="radio" name="textAlign" value="center"><!--
+                    --><i class="fa fa-align-center"></i><!--
+                    --><input type="radio" name="textAlign" value="right"><!--
+                --><i class="fa fa-align-right"></i>
+            </div>
+        </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Label type<span class="caret"></span></a>
+            <ul class="dropdown-menu label-type">
+                <li class="J-type-product {{#xif "this.labelType == 'product'"}} active{{/xif}}"><a href="javascript:;" class="J-type" data-type="product">Product</a></li>
+                <li class="J-type-container {{#xif "this.labelType == 'container'"}} active{{/xif}}"><a href="javascript:;" class="J-type" data-type="container">Container</a></li>
+                <li class="J-type-ucc {{#xif "this.labelType == 'ucc'"}} active{{/xif}}"><a href="javascript:;" class="J-type" data-type="ucc">UCC</a></li>
+                <li class="J-type-upc {{#xif "this.labelType == 'upc'"}} active{{/xif}}"><a href="javascript:;" class="J-type" data-type="upc">UPC</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+<!-- 标签内容面板 -->
+<div class="J-label-container" style="position:absolute; overflow:auto; padding:10px; font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif; line-height: 1.42857;">
+    <div class="label-container selected" style="position:relative; background-color:#fff; width:102mm; height:152mm; padding:0; font-size: 14px; margin: 0 0 10px;">
+
+    </div>
+</div>
+<!-- 字段面板 -->
+<div class="J-data-container" style="position:absolute; right:4px; background-color:#f8f8f8; padding:10px;  border-bottom: 1px solid #ddd; overflow: hidden;">
+    <div class="input-group" style="margin-bottom: 10px;">
+        <span class="input-group-addon" id="basic-addon1">Label Name</span>
+        <input type="text" class="form-control J-label-name" placeholder="label name..." aria-describedby="basic-addon1">
+    </div>
+    <select class="form-control" style="height:30px;">
+        <option value="1">clp</option>
+        <option value="2">tlp</option>
+    </select>
+    <ul class="nav nav-pills" style="display:inline-block;">
+        <li class="active label1"><a href="javascript:;">Common</a></li>
+        <li class="barcode" style="height:auto !important;"><a href="javascript:;">Barcode</a></li>
+    </ul><div class="dropdown J-setting">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><i class="fa fa-gear"></i><span class="caret"></span></a>
+    <ul class="dropdown-menu" style="right:-18px; left:auto;">
+        <li><a href="javascript:;" class="J-add-field"> <i class="fa fa-plus"></i> Add Field</a></li>
+        <li><a href="javascript:;" class="J-del-field"> <i class="fa fa-trash"></i> Delete Field</a></li>
+    </ul>
+</div>
+<!-- Tab panes -->
+<div class="content draggable label1">
+    <button type="button" class="btn btn-warning">Cancle Delete</button>
+    <div class="type-product"></div>
+    <div class="type-container"></div>
+    <div class="type-ucc"></div>
+    <div class="type-upc"></div>
+</div>
+</div>
+<!-- setting 面板 -->
+<div class="J-setting-container" style="position:relative; z-index:-9999; opacity:0; width:400px; vertical-align: middle; padding: 10px;">
+    <!-- 线条 -->
+    <div class="line">
+        <dl class="dl-horizontal">
+            <dt>line weight: </dt>
+            <dd><input type="number" min="2" class="form-control" name="lineWeight"></dd>
+        </dl>
+    </div>
+    <!-- 字体属性 -->
+    <div class="font">
+        <dl class="dl-horizontal">
+            <dt>font-family: </dt>
+            <dd>
+                <select name="fontFamily" class="form-control">
+                    <option value="'Helvetica Neue', Helvetica, Arial, sans-serif">'Helvetica Neue', Helvetica, Arial, sans-serif</option>
+                </select>
+            </dd>
+            <dt>letter-spacing: </dt>
+            <dd>
+                <input type="number" min="0" class="form-control" name="letterSpacing">
+            </dd>
+            <dt>line-height: </dt>
+            <dd>
+                <input type="number" min="1" class="form-control" name="lineHeight">
+            </dd>
+        </dl>
+    </div>
+    <!-- 图片属性 -->
+    <div class="img">
+        <dl class="dl-horizontal">
+            <dt>src: </dt>
+            <dd><input type="text" class="form-control" name="src"></dd>
+            <dt>description: </dt>
+            <dd><input type="text" class="form-control" name="description"></dd>
+        </dl>
+    </div>
+    <!-- 条形码属性 -->
+    <div class="barcode">
+        <dl class="dl-horizontal">
+            <dt>width: </dt>
+            <dd><input type="number" class="form-control" name="width"></dd>
+            <dt>height: </dt>
+            <dd><input type="number" class="form-control" name="height"></dd>
+            <dt>type: </dt>
+            <dd>
+                <select name="type" class="form-control">
+                    <option value="CODE39">CODE 39</option>
+                    <option value="Code93">Code 93</option>
+                    <option value="EAN13">EAN 13</option>
+                    <option value="EAN8">EAN 8</option>
+                    <option value="Code128">Code 128</option>
+                </select>
+            </dd>
+        </dl>
+    </div>
+</div>

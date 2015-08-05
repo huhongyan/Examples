@@ -1,0 +1,8 @@
+{{#each list}}
+<span>
+	<button type="button" class="btn btn-default btn-sm J-data" data-name="{{content}}">{{content}}</button><b data-id="{{placeholder_id}}" data-name="{{content}}">×</b>
+</span>
+{{/each}}
+{{#unless list}}
+	No data.
+{{/unless}}

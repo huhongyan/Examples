@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+<title>note3</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+    <link rel="stylesheet" href="/Example/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="note.css">
+</head>
+<body>
+
+<article class="container articlewenzi2">
+    <h3>
+        1、场景怎么会动起来
+    </h3>
+    <p>
+        第一种方法是让物体在坐标系里面移动，摄像机不动。第二种方法是让摄像机在坐标系里面移动，物体不动。这样场景就能够动起来了。
+    </p>
+    <h3>
+        2、渲染循环
+    </h3>
+    <p>
+        物体运动还有一个关键点，就是要渲染物体运动的每一个过程，让它显示给观众。渲染的时候，我们调用的是渲染器的render() 函数。
+        如果我们改变了物体的位置或者颜色之类的属性，就必须重新调用render()函数，才能够将新的场景绘制到浏览器中去。
+        不然浏览器是不会自动刷新场景的。
+    </p>
+    <p>
+        调用requestAnimationFrame函数，传递一个callback参数，则在下一个动画帧时，会调用callback这个函数。
+    </p>
+    <h3>
+        3、物体运动后，怎么评估程序的性能
+    </h3>
+    <p>
+        帧数：图形处理器每秒钟能够刷新几次，通常用fps（Frames Per Second）来表示。
+    </p>
+    <p>
+        当物体在快速运动时,当人眼所看到的影像消失后，人眼仍能继续保留其影像1/24秒左右的图像，这种现象被称为视觉暂留现象。
+        是人眼具有的一种性质。人眼观看物体时，成像于视网膜上，并由视神经输入人脑，感觉到物体的像。
+        一帧一帧的图像进入人脑，人脑就会将这些图像给连接起来，形成动画。
+    </p>
+    <h4>
+        性能监视器Stats的使用
+    </h4>
+    <p>
+        在Three.js中，性能监视器被封装在一个类中，这个类叫做Stats，下面是一段伪代码，表示Stats的使用。
+    </p>
+    <div class="fixed syntax highlighted"><div class="numbers-column"><div class="line ln1">1</div><div class="line ln2">2</div><div class="line ln3">3</div><div class="line ln4">4</div><div class="line ln5">5</div><div class="line ln6">6</div><div class="line ln7">7</div><div class="line ln8">8</div><div class="line ln9">9</div><div class="line ln10">10</div><div class="line ln11">11</div><div class="line ln12">12</div></div><div class="code-column"><table><tbody><tr><td class="source javascript alt"><span class="javascript"><span class="keyword">var</span> stats <span class="operator">=</span> <span class="keyword">new</span> <span class="function">Stats</span>();
+</span></td></tr><tr><td class="source javascript"><span class="javascript">stats.<span class="function">setMode</span>(<span class="constant">1</span>); <span class="comment">// 0: fps, 1: ms</span>
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript"><span class="comment">// 将stats的界面对应左上角</span>
+</span></td></tr><tr><td class="source javascript"><span class="javascript">stats.domElement.style.position <span class="operator">=</span> <span class="string">'absolute'</span>;
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript">stats.domElement.style.left <span class="operator">=</span> <span class="string">'0px'</span>;
+</span></td></tr><tr><td class="source javascript"><span class="javascript">stats.domElement.style.top <span class="operator">=</span> <span class="string">'0px'</span>;
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript">document.body.<span class="function">appendChild</span>( stats.domElement );
+</span></td></tr><tr><td class="source javascript"><span class="javascript"><span class="function">setInterval</span>( <span class="function">function</span> () {
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript">    stats.<span class="function">begin</span>();
+</span></td></tr><tr><td class="source javascript"><span class="javascript">    <span class="comment">// 你的每一帧的代码</span>
+</span></td></tr><tr><td class="source javascript alt"><span class="javascript">    stats.<span class="function">end</span>();
+</span></td></tr><tr><td class="source javascript"><span class="javascript">}, <span class="constant">1000</span> <span class="operator">/</span> <span class="constant">60</span> );
+</span></td></tr></tbody></table></div></div>
+
+
+</article>
+<br>
+<footer class="text-right">
+    本笔记来自阅读<a href="http://www.hewebgl.com/">http://www.hewebgl.com</a>的学习资料所记。
+</footer>
+</body>
+</html>

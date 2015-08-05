@@ -1,0 +1,452 @@
+a{
+    outline: none !important;
+    text-decoration: none !important;
+}
+/* dialog相关 */
+.label-util .aui_content{
+    height: 100%;
+    width: 100%;
+    background: #aaa;
+    font-size: 14px;
+}
+.label-util .aui_buttons, .label-util .aui_main{
+    background: #f8f8f8;
+}
+.label-util .aui_close{
+    z-index: 9;
+}
+.prompt .aui_content{
+    height: 'auto';
+    width: 'auto';
+    background: #fff;
+}
+.label-util .aui_header{
+    height: auto !important;
+    line-height: auto !important;
+}
+.label-util .aui_titleBar{
+    border-bottom: 0;
+}
+.label-util  .aui_buttons button{
+    padding: 5px 10px;
+    line-height: 1.5;
+    border-radius: 3px; 
+}
+.label-util  .aui_buttons button.aui_state_highlight{
+    background-image: -moz-linear-gradient(top,#337ab7 0,#265a88 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#337ab7),to(#265a88));
+    background-image: linear-gradient(to bottom,#337ab7 0,#265a88 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #245580;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    background-color: #337ab7;
+}
+.label-util .aui_buttons button.aui_state_highlight:hover{
+    border-color: #05355F;
+}
+.label-util  .aui_buttons button.btn-preview{
+    color: #FFF;
+    background-image: -moz-linear-gradient(top,#5bc0de 0,#2aabd2 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#5bc0de),to(#2aabd2));
+    background-image: linear-gradient(to bottom,#5bc0de 0,#2aabd2 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #28a4c9;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+    background-color: #5bc0de;
+}
+.label-util  .aui_buttons button.btn-preview:hover{
+    color: #FFF;
+    border-color: #0581A6;
+}
+.label-util  .aui_buttons button.btn-reset{
+    color: #FFF;
+    background-image: -moz-linear-gradient(top,#f0ad4e 0,#eb9316 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#f0ad4e),to(#eb9316));
+    background-image: linear-gradient(to bottom,#f0ad4e 0,#eb9316 100%);
+    background-repeat: repeat-x;
+    border: 1px solid #e38d13;
+    background-color: #f0ad4e;
+    text-shadow: 0 -1px 0 rgba(0,0,0,.2);
+}
+.label-util  .aui_buttons button.btn-reset:hover{
+ color: #FFF;
+ border-color: #AD6704;
+}
+/* 整体样式 */
+.util-container{
+    height: 100%;
+    background-color: #aaa;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+.util-container .navbar{
+    border-radius: 0;
+    color: #777;
+    margin-bottom: 0;
+    padding-left: 15px;
+}
+.util-container .navbar .navbar-nav>li>a:hover{
+    background-color: #f0f0f0;
+}
+.util-container  .navbar-right{
+    margin-right: 0;
+}
+.nav-wz{
+    padding-right: 40px;
+}
+.nav-wz span{
+    display: inline-block;
+    line-height: 20px;
+    padding: 15px;
+}
+.nav-wz .fa{
+    position: absolute;
+}
+.util-container .navbar .fa{
+    cursor: pointer;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    margin-right: 5px;
+}
+.util-container .navbar .cgcz input:hover + i, .nav-wz .fa:hover{
+    font-size: 16px;
+    color: #333;
+}
+.util-container .navbar .cgcz input:checked + i{
+    font-size: 16px;
+    color: #337ab7;
+
+}
+.text span{
+    display: inline-block;
+    line-height: 20px;
+    padding: 15px 5px;
+
+}
+.text input{
+    display: inline-block;
+    width: 60px;
+    padding: 6px 5px;
+}
+.cgcz{
+    padding: 5px 0px 5px 25px;
+    width: 90px;
+}
+.cgcz input{
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    z-index: 9;
+    opacity: 0;
+    cursor: pointer;
+}
+.cgcz.disable i{
+    color: #ccc !important;
+    font-size: 14px !important;
+}
+
+/* 拖动相关 */
+.label-container>div{
+    z-index: 9;
+}
+.label-container.selected{
+    /*outline: 1px solid #555;*/
+    box-shadow: 5px 5px 2px rgba(0,0,0,.3);
+}
+.label-container>i, .label-container div>i{
+    position: absolute;
+    display: none;
+    height: 8px;
+    width: 8px;
+    border-radius: 4px;
+    background-image: -webkit-radial-gradient(ellipse at left, rgb(220, 75, 200),rgb(0, 0, 75));
+    background-image: -moz-radial-gradient(ellipse at left, rgb(220, 75, 200),rgb(0, 0, 75));
+    background-image: radial-gradient(ellipse at left, rgb(220, 75, 200),rgb(0, 0, 75));   
+}
+.label-container .selected>i, .label-container.selected>i{
+    display: block;
+}
+
+.label-container .up-left{
+    cursor: nw-resize;
+    top: -4px;
+    left: -4px;
+}
+.label-container .up-middle{
+    cursor: n-resize;
+    top: -4px;
+    left: 50%;
+    margin-left: -4px;
+}
+.label-container .up-right{
+    cursor: ne-resize;
+    top: -4px;
+    right: -4px;
+}
+.label-container .right-middle{
+    cursor: e-resize;
+    right: -4px;
+    top: 50%;
+    margin-top: -4px;
+}
+.label-container .down-left{
+    cursor: sw-resize;
+    bottom: -4px;
+    left: -4px;
+}
+.label-container .down-middle{
+    cursor: s-resize;
+    bottom: -4px;
+    left: 50%;
+    margin-left: -4px;
+}
+.label-container .down-right{
+    cursor: se-resize;
+    bottom: -4px;
+    right: -4px;
+}
+.label-container .left-middle{
+    cursor: w-resize;
+    left: -4px;
+    top: 50%;
+    margin-top: -4px;
+}
+/* 横线 */
+.line.horizontal .middle{
+    cursor: move;
+    left: 50%;
+    margin-left: -4px;
+    margin-top: -4px;
+}
+.line.horizontal .right, .line.horizontal .left{
+    cursor: e-resize;
+    margin-top: -4px;
+}
+.line.horizontal .right{
+    right: -4px;
+}
+.line.horizontal .left{
+    left: -4px;
+}
+
+/* 竖线 */
+.line.vertical .middle{
+    top: 50%;
+    cursor: move;
+    margin-left: -4px;
+    margin-top: -4px;
+}
+.line.vertical .right, .line.vertical .left{
+    cursor: n-resize;
+    margin-left: -4px;
+}
+.line.vertical .right{
+    bottom: -4px;
+}
+.line.vertical .left{
+    top: -4px;
+}
+
+.label1 div{
+    border:1px solid #ddd;
+    overflow: hidden;
+}
+
+.label1 .form-control{
+    /*outline: 1px solid #ccc;*/
+    border-radius: 0px;
+    box-shadow: none;
+}
+.label1 .form-control:focus{
+    outline: 1px solid #66afe9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);
+}
+/* 右键菜单 */
+.J-contextmenu{
+    position: absolute;
+    z-index: 9999;
+    outline: none !important;
+    -webkit-box-shadow: 0 2px 5px rgba(0,0,0,.175);
+    -moz-box-shadow: 0 2px 5px rgba(0,0,0,.175);
+    box-shadow: 0 2px 5px rgba(0,0,0,.175);
+    width: 200px;
+}
+.J-contextmenu .list-group-item{
+    border-radius: 0 !important;
+}
+.J-contextmenu .list-group-item i{
+    margin-right: 5px;
+}
+.J-contextmenu, .J-contextmenu .hide{
+    display: none;
+}
+.J-contextmenu:focus, .J-contextmenu .show{
+    display: block;
+}
+.J-contextmenu .list-group-item:hover{
+    z-index: 2;
+    color: #fff;
+    background-color: #337ab7;
+    border-color: #337ab7;
+}
+
+/* 字段面板 */
+.J-data-container .J-data{
+    margin-bottom: 15px;
+    margin-right: 10px; 
+}
+.J-data-container .nav{
+    margin-bottom: 20px;
+    margin-top: 10px;
+}
+.J-data-container .J-setting{
+    position:absolute;
+    display:inline-block;
+    margin-top: 20px;
+    right:10px;
+}
+.J-data-container .J-setting .dropdown-menu i{
+    margin-right: 5px;
+}
+.J-data-container .nav .active>a{
+    cursor: default;
+}
+.J-data-container .nav li>a{
+    padding: 6px 15px;
+}
+.J-data-container .nav a{
+    -wenkit-transition: background-color 1s ease-out;
+    -moz-transition: background-color 1s ease-out;
+    transition: background-color 1s ease-out;
+}
+.J-data-container .content{
+    overflow: auto;
+    transition: all .3s ease-out;
+}
+.J-data-container .content.un-draggable{
+    border: 1px solid #ddd;
+    padding: 50px 5px 5px 5px;
+    box-shadow: 1px 1px 5px 0px rgba(0,0,0,.3);
+    margin-top: -15px;
+}
+.J-data-container .content>.btn-warning{
+    position: absolute;
+    z-index: 9;
+    margin-top: -45px;
+    padding: 5px 12px;
+    display: none;
+}
+.J-data-container .content.un-draggable>.btn-warning{
+    display: block;
+}
+.J-data-container .content>div{
+    display: none;
+    border: none;
+    overflow: visible;
+}
+.J-data-container .content>div>span{
+    position: relative;
+    display: inline-block;
+}
+.J-data-container .content.un-draggable>div button,
+.J-data-container .content.un-draggable>div button:hover,
+.J-data-container .content.un-draggable>div button:focus{
+    background-color: #fff;
+    border-color: #ccc;
+    pointer-events: none;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: .65;
+}
+.J-data-container .content b:hover{
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+.J-data-container .content>div.active{
+    display: block;
+}
+.J-data-container .content b{
+    position: absolute;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    line-height: 20px;
+    background-color: rgb(255, 255, 255);
+    margin-top: -10px;
+    margin-left: -25px;
+    cursor: pointer;
+    font-size: 16px;
+    display: none;
+}
+.J-data-container .content.un-draggable b{
+    display: inline-block;
+}
+.J-data-container .content.un-draggable.warn{
+    border: 1px solid #eea236;
+    box-shadow: 1px 1px 5px 3px rgba(213,133,18,.3);
+    transition: all .5s ease-out;
+}
+/* setting面板 */
+.J-setting-container>div{
+    display: none;
+}
+
+.J-setting-container.line .line, 
+.J-setting-container.orthogon .line,
+.J-setting-container.font .font,
+.J-setting-container.img .img,
+.J-setting-container.barcode .barcode{
+    display: block;
+}
+
+.J-setting-container .dl-horizontal dt{
+    width: 105px;
+    line-height: 34px;
+}
+.J-setting-container .dl-horizontal dd{
+    margin-left: 110px;
+    margin-bottom: 5px;
+}
+
+.transition{
+    -webkit-animation: transition 1s 0s;
+    -moz-animation: transition 1s 0s;
+    animation: transition 1s 0s;
+}
+
+-webkit-@keyframes transition
+{
+    50% {   transform: translateX(200px); opacity: 1}
+    72% {   transform: translateX(240px); opacity: 0}
+    75% {   transform: translateX(240px); opacity: 0}
+    75% {   transform: translateX(-240px); opacity: 0}
+    78% {   transform: translateX(-240px); opacity: 0}
+    100%{   transform: translateX(0px); opacity: 1}
+}
+-moz-@keyframes transition
+{
+    50% {   transform: translateX(200px); opacity: 1}
+    72% {   transform: translateX(240px); opacity: 0}
+    75% {   transform: translateX(240px); opacity: 0}
+    75% {   transform: translateX(-240px); opacity: 0}
+    78% {   transform: translateX(-240px); opacity: 0}
+    100%{   transform: translateX(0px); opacity: 1}
+}
+@keyframes transition
+{
+    50% {   transform: translateX(200px); opacity: 1}
+    72% {   transform: translateX(240px); opacity: 0}
+    75% {   transform: translateX(240px); opacity: 0}
+    75% {   transform: translateX(-240px); opacity: 0}
+    78% {   transform: translateX(-240px); opacity: 0}
+    100%{   transform: translateX(0px); opacity: 1}
+}
