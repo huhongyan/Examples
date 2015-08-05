@@ -15,6 +15,7 @@ require.config({
         "text": "bower_components/requirejs-text/text",
     	"handlebars": "bower_components/handlebars/handlebars.min",
     	"handlebars.runtime": "bower_components/handlebars/handlebars.runtime.amd.min",
+        "handlebars_ext": "lib/handlebars_ext",
         "underscore":"bower_components/underscore/underscore-min",
         "backbone": "bower_components/backbone/backbone-min",
         "backbone.localStorage": "bower_components/backbone.localStorage/backbone.localStorage-min",

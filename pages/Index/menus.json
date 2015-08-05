@@ -5,7 +5,11 @@
 		{
 			"title": "Validate",
 			"href": "/Example/lib/validate/index.html"
-		}
+		},
+	    {
+		  "title": "LabelUtil",
+		  "href": "/Example/lib/LabelUtil/index.html"
+	    }
 	]
 },{
 	"icon": "fa fa-th-list",

@@ -1,6 +1,6 @@
 ﻿(function(){
     var config = {
-		url : "menus.json",
+		url : "menus.json"
     };
 	define(config);
 	
