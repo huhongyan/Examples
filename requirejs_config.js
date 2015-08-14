@@ -5,9 +5,8 @@
  * @version $Id$
  */
 require.config({ 
-    baseUrl: "/Example/",
+    baseUrl: "/Examples/",
     paths: {
-    	// "bower": "bower_components",
     	"jquery": "bower_components/jquery/dist/jquery.min",
     	"domReady": "bower_components/domReady/domReady",
     	"require-css": "bower_components/require-css/css.min",

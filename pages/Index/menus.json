@@ -4,11 +4,11 @@
 	"subMenus": [
 		{
 			"title": "Validate",
-			"href": "/Example/lib/validate/index.html"
+			"href": "/Examples/lib/validate/index.html"
 		},
 	    {
 		  "title": "LabelUtil",
-		  "href": "/Example/lib/LabelUtil/index.html"
+		  "href": "/Examples/lib/LabelUtil/index.html"
 	    }
 	]
 },{
@@ -17,16 +17,16 @@
 	"subMenus": [
 		{
 			"title": "Canvas Demo1",
-			"href": "/Example/pages/Canvas/canvas1.html"
+			"href": "/Examples/pages/Canvas/canvas1.html"
 		},{
 			"title": "Canvas Demo2",
-			"href": "/Example/pages/Canvas/canvas2.html"
+			"href": "/Examples/pages/Canvas/canvas2.html"
 		},{
 			"title": "Canvas Demo3",
-			"href": "/Example/pages/Canvas/canvas3/canvas3.html"
+			"href": "/Examples/pages/Canvas/canvas3/canvas3.html"
 		},{
 			"title": "Canvas Demo4",
-			"href": "/Example/pages/Canvas/canvas4.html"
+			"href": "/Examples/pages/Canvas/canvas4.html"
 		}
 	]
 },{
@@ -35,7 +35,7 @@
 	"subMenus": [
 		{
 			"title": "TodoMVC",
-			"href": "/Example/pages/TodoMVC/index.html"
+			"href": "/Examples/pages/TodoMVC/index.html"
 		}
 	]
 },{
@@ -44,15 +44,15 @@
 	"subMenus": [
 		{
 			"title": "Circle Hover Effects",
-			"href": "/Example/pages/CircleHoverEffects/index.html"
+			"href": "/Examples/pages/CircleHoverEffects/index.html"
 		},
 	  	{
 			"title": "3D Hover Effects",
-			"href": "/Example/pages/3DHoverEffects/index.html"
+			"href": "/Examples/pages/3DHoverEffects/index.html"
 	  	},
 		{
 		  	"title": "3D Image Slider",
-		  	"href": "/Example/pages/css-3D-image-slider/index-amd.html"
+		  	"href": "/Examples/pages/css-3D-image-slider/index-amd.html"
 		},
 	  	{
 			"title": "Animate.css 效果示例",
@@ -69,39 +69,39 @@
   "subMenus": [
 	{
 	  "title": "Three.js学习笔记-基本认识",
-	  "href": "/Example/pages/Three.js/doc/note1.html"
+	  "href": "/Examples/pages/Three.js/doc/note1.html"
 	},
 	{
 	  "title": "Three.js练习1",
-	  "href": "/Example/pages/Three.js/index.html"
+	  "href": "/Examples/pages/Three.js/index.html"
 	},
 	{
 	  "title": "Three.js学习笔记-点",
-	  "href": "/Example/pages/Three.js/doc/note2.html"
+	  "href": "/Examples/pages/Three.js/doc/note2.html"
 	},
 	{
 	  "title": "Three.js练习2",
-	  "href": "/Example/pages/Three.js/index2.html"
+	  "href": "/Examples/pages/Three.js/index2.html"
 	},
 	{
 	  "title": "Three.js学习笔记-运动",
-	  "href": "/Example/pages/Three.js/doc/note3.html"
+	  "href": "/Examples/pages/Three.js/doc/note3.html"
 	},
 	{
 	  "title": "Three.js练习3",
-	  "href": "/Example/pages/Three.js/index3.html"
+	  "href": "/Examples/pages/Three.js/index3.html"
 	},
 	{
 	  "title": "Three.js学习笔记-相机",
-	  "href": "/Example/pages/Three.js/doc/note4.html"
+	  "href": "/Examples/pages/Three.js/doc/note4.html"
 	},
 	{
 	  "title": "Three.js学习笔记-光源",
-	  "href": "/Example/pages/Three.js/doc/note5.html"
+	  "href": "/Examples/pages/Three.js/doc/note5.html"
 	},
 	{
 	  "title": "Three.js学习笔记-纹理",
-	  "href": "/Example/pages/Three.js/doc/note6.html"
+	  "href": "/Examples/pages/Three.js/doc/note6.html"
 	}
   ]
 },{
@@ -110,7 +110,7 @@
   "subMenus": [
 	{
 	  "title": "Color",
-	  "href": "/Example/pages/css-learning-notes/doc/note1.html"
+	  "href": "/Examples/pages/css-learning-notes/doc/note1.html"
 	}
   ]
 }]
