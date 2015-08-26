@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <title>matrix</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <link rel="stylesheet" href="/Examples/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="note.css">
+</head>
+<body>
+<article class="container articlewenzi2">
+    <h3>css3中的矩阵</h3>
+    <p>CSS3中的矩阵指的是一个方法，书写为matrix()和matrix3d()，前者是元素2D平面的移动变换(transform)，后者则是3D变换。2D变换矩阵为3*3, 如上面矩阵示意图；3D变换则是4*4的矩阵。</p>
+    <h3>transform属性</h3>
+    <p>transform中有这么几个属性方法：斜拉(skew)，缩放(scale)，旋转(rotate)以及位移(translate).</p>
+    <p>其后面运作的机理是什么呢?</p>
+    <p>无论是旋转还是拉伸什么的，本质上都是应用的matrix()方法实现的（修改matrix()方法固定几个值）</p>
+    <p><span style="color: #ff3842">注</span>：我个人理解，在设置元素移动变换之后，实际上是修改了matrix()方法的值，通过对元素里的每个点的位置坐标与这个矩阵的计算获取移动变换之后的坐标值，重新渲染出移动变换之后的样子</p>
+    <h3>transform与坐标系统</h3>
+    <p>transform默认是绕着中心点旋转的，而这个中心点就是transform-origin属性对应的点，也是所有矩阵计算的一个重要依据点</p>
+    <p><span style="color: #ff3842">注</span>：这个中心点，是指作用的元素的中心点，也就是以元素的中心点作为坐标原点，这个要与页面的坐标原点区分开</p>
+    <img src="css-transforms-matrix2.png" alt="元素中心点"/>
+    <p>当我们通过transform-origin属性进行设置的时候，矩阵相关计算也随之发生改变。反应到实际图形效果上就是，旋转拉伸的中心点变了！</p>
+    <p>举例，如果我们设置：</p>
+    <pre>transform-origin: 50px 70px;</pre>
+    <p>则，中心点位置有中间移到了距离左侧50像素，顶部70像素的地方（参见下图），而此时的(30, 30)的坐标为白点所示的位置.</p>
+    <img src="css-transforms-matrix4.png" alt="元素中心点"/>
+    <h3>matrix方法</h3>
+    <p>CSS3 transform的matrix()方法写法如下：</p>
+    <pre>transform: matrix(a,b,c,d,e,f); //定义 2D 转换，使用六个值的矩阵。</pre>
+    <p>实际上，这6参数，对应的矩阵就是：</p>
+    <img src="css-transforms-matrix3.gif" alt="矩阵"/>
+    <p>坐标发生变化，反应在这里就是如下转换公式：</p>
+    <img src="css-transforms-matrix5.gif" alt="矩阵公式"/>
+    <p>其中，x, y表示转换元素的所有坐标（变量）了，ax+cy+e为变换后的水平坐标，bx+dy+f表示变换后的垂直位置。</p>
+    <h3>matrix参数与translate/scale/skew/rotate函数参数的对应关</h3>
+    <table class="table table-bordered">
+        <tr>
+            <td>translate(tx,ty)</td>
+            <td>matrix(1,0,0,1,tx,ty)</td>
+        </tr>
+        <tr>
+            <td>scale(sx,sy)</td>
+            <td>matrix(sx,0,0,sy,0,0)</td>
+        </tr>
+        <tr>
+            <td>skew(sx,sy)</td>
+            <td>matrix(1,tansy,tansx,1,0,0)</td>
+        </tr>
+        <tr>
+            <td>rotate(rx)</td>
+            <td>matrix(cosrx,sinrx,-sinrx,cosrx,0,0)</td>
+        </tr>
+    </table>
+    <p>例如旋转(rotate)：方法以及参数使用如下（假设角度为θ）：</p>
+    <pre>matrix(cosθ,sinθ,-sinθ,cosθ,0,0)</pre>
+    <p>结合矩阵公式，就有：</p>
+    <pre>x' = x*cosθ-y*sinθ+0 = x*cosθ-y*sinθ<br/>y' = x*sinθ+y*cosθ+0 = x*sinθ+y*cosθ</pre>
+    <p>这个与IEMatrix滤镜中的旋转是有些类似的(M11表示矩阵第1行第1个（参数a），M21表示矩阵第2行第一个（参数b）……)：</p>
+    <pre>filter:progid:DXImageTransform.Microsoft.Matrix(M11=cosθ,M21=sinθ,M12=-sinθ,M22=cosθ');</pre>
+    <p>就旋转而言，rotate(θdeg)这种书写形式要比matrix简单多了，首先记忆简单，其次，无需计算。例如，旋转30°，前者直接：</p>
+    <pre>transform:rotate(30deg);</pre>
+    <p>而使用matrix表示则还要计算cos, sin值：</p>
+    <pre>transform: matrix(0.866025,0.500000,-0.500000,0.866025,0,0);</pre>
+    <h3>既然有简单的skew, rotate..，那matrix有何用？</h3>
+
+    <br/>
+</article>
+<footer class="text-right">
+    本笔记来自阅读<a href="http://www.zhangxinxu.com">张鑫旭</a>的博客。
+</footer>
+</body>
+</html>
