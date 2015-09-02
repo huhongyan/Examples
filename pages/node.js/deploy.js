@@ -84,5 +84,45 @@
 *       NPM对package.json的字段做了扩展，允许在其中申明三方包依赖
 *
 *       2、安装命令行程序
+*       从NPM服务上下载安装一个命令行程序的方法与三方包类似。
+*       例如node-echo提供了命令行使用方式，只要node-echo自己配置好了相关的package.json字段，
+*       对于用户而言，只需要使用以下命令安装程序。
+*       $ npm install node-echo -g
+*       参数中的-g表示全局安装，并且NPM会自动创建好*nix系统下需要的软链文件或Windows系统下需要的.cmd文件。
 *
+*       3、发布代码
+*       第一次使用NPM发布代码前需要注册一个账号。
+*       终端下运行npm adduser，之后按照提示做即可。
+*       账号搞定后，接着我们需要编辑package.json文件，加入NPM必需的字段。
+*       接着上边node-echo的例子，package.json里必要的字段如下。
+*       {
+            "name": "node-echo",           # 包名，在NPM服务器上须要保持唯一
+            "version": "1.0.0",            # 当前版本号
+            "dependencies": {              # 三方包依赖，需要指定包名和版本号
+                "argv": "0.0.2"
+             },
+             "main": "./lib/echo.js",       # 入口模块位置
+             "bin" : {
+                "node-echo": "./bin/node-echo"      # 命令行程序名和主模块位置
+             }
+        }
+*       之后，我们就可以在package.json所在目录下运行npm publish发布代码了。
+*
+*       4、版本号
+*       使用NPM下载和发布代码时都会接触到版本号。NPM使用语义版本号来管理代码。
+*       语义版本号分为X.Y.Z三位，分别代表主版本号、次版本号和补丁版本号。当代码变更时，版本号按以下原则更新。
+*           I、  如果只是修复bug，需要更新Z位。
+*           II、 如果是新增了功能，但是向下兼容，需要更新Y位。
+*           III、如果有大变动，向下不兼容，需要更新X位。
+*       版本号有了这个保证后，在申明三方包依赖时，除了可依赖于一个固定版本号外，还可依赖于某个范围的版本号。
+*       例如"argv": "0.0.x"表示依赖于0.0.x系列的最新版argv。
+*
+*       5、一些NPM常用命令
+*           使用npm help可查看所有命令。
+*           使用npm help <command>可查看某条命令的详细帮助，例如npm help install。
+*           在package.json所在目录下使用npm install . -g可先在本地安装当前命令行程序，可用于发布前的本地测试。
+*           使用npm update <package>可以把当前目录下node_modules子目录里边的对应模块更新至最新版本。
+*           使用npm update <package> -g可以把全局安装的对应命令行程序更新至最新版。
+*           使用npm cache clear可以清空NPM本地缓存，用于对付使用相同版本号发布新版本代码的人。
+*           使用npm unpublish <package>@<version>可以撤销发布自己发布过的某个版本代码。
 */
