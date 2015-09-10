@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue demo2</title>
+</head>
+<body>
+    <form id="demo">
+        <div v-demo="LightSlateGray : msg"></div>
+
+        <!-- 同一个特性内部，逗号分隔的多个从句将被绑定为多个指令实例 -->
+        <div v-demo="color: 'white', text: 'hello!'"></div>
+
+        <!-- 如果想要用单个指令实例处理多个参数，可以利用字面量对象作为表达式 -->
+        <div v-demo="{color: 'white', text: 'hello!'}"></div>
+
+        <!-- 字面指令 -->
+        <input v-literal-dir="{{msg}}"/>
+
+        <!-- 在表单的 input 元素上使用 v-model 指令来创建双向数据绑定 -->
+        <!-- text -->
+        <p>
+            <!-- 在 "change" 而不是 "input" 事件触发后进行同步 -->
+            <input v-model="msg" lazy>
+            {{msg}}
+        </p>
+        <p>
+            <!-- 将用户的输入自动转换为数字 -->
+            <!-- 注意 debounce 参数并不对用户的输入事件进行 debounce：
+                    它只对底层数据的 “写入” 操作起作用。
+                    因此当使用 debounce 时，你应该用 vm.$watch()
+                    而不是 v-on 来响应数据变化-->
+            <input v-model="age" number debounce="500">
+            {{age}}
+        </p>
+        <p>{{str}}</p>
+        <!-- checkbox -->
+        <p>
+            <input type="checkbox" v-model="checked">
+            {{checked ? "yes" : "no"}}
+        </p>
+        <!-- radio buttons -->
+        <p>
+            <input type="radio" name="picked" value="one" v-model="picked">
+            <input type="radio" name="picked" value="two" v-model="picked">
+            {{picked}}
+        </p>
+        <!-- select -->
+        <p>
+            <select v-model="selected">
+                <option>a</option>
+                <option>b</option>
+            </select>
+            <select v-model="selected" options="options">
+                <option value="">Select a user...</option>
+            </select>
+            {{selected}}
+        </p>
+        <!-- multiple select -->
+        <p>
+            <select v-model="multiSelect" multiple>
+                <option>one</option>
+                <option>two</option>
+                <option>three</option>
+            </select>
+            {{multiSelect}}
+        </p>
+        <p><pre>data: {{$data | json 2}}</pre></p>
+    </form>
+
+    <!-- requirejs -->
+    <script src="../../../bower_components/requirejs/require.js" data-main="demo"></script>
+</body>
+</html>

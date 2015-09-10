@@ -26,7 +26,11 @@ require.config({
         "NProgress": "bower_components/nprogress/nprogress",
         "Threejs": "bower_components/three.js/build/three.min",
         "Statsjs": "bower_components/stats.js/build/stats.min",
-        "Tweenjs": "bower_components/tween.js/build/tween.min"
+        "Tweenjs": "bower_components/tween.js/build/tween.min",
+
+        /*  Vue  */
+        "Vue": "bower_components/vue/dist/vue"
+
     }, 
     shim: {
         'json': ['text'],

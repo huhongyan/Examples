@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue demo3</title>
+</head>
+<body>
+
+    <div id="demo">
+        <!-- 父级模板 -->
+        <!-- 模版中使用 组件 -->
+        <my-component msg="{{message}}"></my-component>
+        <!-- HTML对大小写不敏感 -->
+        <!-- 当驼峰式的 prop 名在 HTML 中作为特性名出现时，需要用对应的连字符（短横）分隔形式代替-->
+        <my-component2 my-msg="{{$data}}"></my-component2>
+
+        <parent my-msg="{{message}}"></parent>
+
+        <component is="{{currentView}}" keep-alive>
+            <!-- 不活跃的的组件会被缓存！ -->
+        </component>
+    </div>
+
+    <script src="../../../bower_components/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('my-component', {
+            props: ['msg'],
+            template: '<p>A custom component! {{msg}}</p>'
+        })
+
+        Vue.component('my-component2', {
+            props: ['myMsg'],
+            template: '<p>A custom component! {{myMsg.message}}</p>'
+        })
+
+        Vue.component('parent', {
+            methods: {
+                onChildLoaded: function (msg) {
+                    console.log(msg)
+                }
+            },
+            components: {
+                child: {
+                    props: ['onLoad', 'msg'],
+                    ready: function () {
+                        this.onLoad('message from child!')
+                    },
+                    template: '<p>{{msg}}</p>'
+                }
+            },
+            props: ['myMsg'],
+            template: [
+                    // on-load和msg会在parent模板作用于编译，所以onChildLoaded，myMsg的取值取决于parent
+                    // 任何子模版中的命令和插值都会在子作用域中编译。
+                '<child on-load="{{onChildLoaded}}" msg="{{myMsg}}"></child>',
+                // 默认情况下，单向绑定
+
+                // 显式双向绑定
+               // '<child msg="{{@ message}}"></child>',
+                // 显示一次性绑定
+              //  '<child msg="{{* message}}"></child>'
+            ].join('')
+        })
+
+
+        var v = new Vue({
+            el: '#demo',
+            data:{
+                message: 'Hello!'
+            }
+        });
+
+        v.a = 'a'
+
+        console.log(v.a);
+    </script>
+</body>
+</html>

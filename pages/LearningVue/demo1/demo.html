@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue demo1</title>
+    <style>
+        #demo{
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            border: 1px solid #f0f0f0;
+            box-shadow: 0 1px 1px rgba(0,0,0,0.1);
+            border-radius: 2px;
+            padding: 25px 35px;
+            margin-left: 0.8em;
+            margin-bottom: 40px;
+            font-size: 14px;
+            line-height: 1.5em;
+        }
+        #demo h1{
+            margin: 0 0 0.5em;
+            font-size: 1.8em;
+        }
+        #demo ul{
+            list-style: none;
+        }
+        #demo li{
+            cursor: pointer;
+            color: #34495e;
+            -ms-user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            line-height: 1.6em;
+        }
+        #demo li.done{
+            color: #7f8c8d;
+            text-decoration: line-through;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="demo">
+        <h1>{{title | uppercase}}</h1>
+        <button v-on="click: todos.push({ done: false, content: 'Learn Something...'})">todos.push(newObj)</button>
+        <p>Vue.js 内部对被观察数组的变异方法 (mutating methods，包括 push(), pop(), shift(), unshift(), splice(), sort() 和 reverse()) 进行了拦截，
+            因此调用这些方法也将自动触发视图更新。</p>
+        <p>当你使用非变异方法，比如filter(), concat() 或 slice()，返回的数组将是一个不同的实例。
+            在此情况下，你可以用新数组替换旧的数组</p>
+        <p>Vue.js 能够识别一个数组元素是否已有关联的 Vue 实例， 并尽可能地进行有效复用。</p>
+        <button v-on="click: todos.$remove(0), keyup:submit | key 'enter'">扩展方法$remove()</button>
+        <p></p>
+        <ul>
+            <!-- 使用v-repeat指令来基于ViewModel上的对象数组渲染列表 -->
+            <li
+                    v-repeat="todo in todos"
+                    v-on="click: toggle(todo, $event)"
+                    class="{{todo.done ? 'done' : ''}}">
+                <!--v-on="click: todo.done = !todo.done"-->
+                <!--{{$index + 1}}、{{content}}-->
+                {{($index + 1) + ' - ' + todo.content}}<br/>
+                <!-- 你也可以使用 v-repeat 遍历一个对象的所有属性。
+                    每个重复的实例会有一个特殊的属性 $key。
+                    对于简单值，你也可以象访问数组中的简单值那样使用 $value 属性。 -->
+                <span v-repeat="todo" style="margin-right: 20px;">{{$key}} : {{$value}}</span>
+            </li>
+            <!-- 块级重复 -->
+            <!--<template v-repeat="todos">
+                <li>{{$index + 1}}</li>
+                <li
+                        class="{{done ? 'done' : ''}}"
+                        v-on="click: done = !done">
+                    {{content}}
+                </li>
+            </template>-->
+            <!-- 简单值数组可以用$value直接访问值 -->
+            <!--<li v-repeat="todos">-->
+                <!--{{$value}}-->
+            <!--</li>-->
+            <!-- 使用别名 -->
+            <!-- 在 v-repeat 中使用别名会让模板可读性更强，同时性能更好。 -->
+            <!--<li v-repeat="todo in todos">-->
+                <!--{{todo.content}}-->
+            <!--</li>-->
+        </ul>
+    </div>
+
+    <!-- requirejs -->
+    <script src="../../../bower_components/requirejs/require.js" data-main="demo"></script>
+</body>
+</html>
