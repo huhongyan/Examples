@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue demo3</title>
+    <link rel="stylesheet" href="timePicker.css"/>
+
+    <script type="x-template" id="timePickerTemp">
+        <div class="time-picker-container" v-class="open: isOpened" tabindex="-1" v-style="
+            width: width + 'px',
+            height: height + 'px',
+            line-height: (height-2) + 'px'
+        " v-on="keydown:listUp | key 38, keydown: listDown | key 40, keydown:toggleOpen | key 13">
+            <input class="time-picker-title" v-model="selectedItem"
+                   v-on="click: toggleOpen" lazy/>
+            <div class="time-picker-list" v-scroll="scrollTop" v-style="height: listHeight + 'px'">
+                <span v-repeat="item in items" v-on="click: changeSelectedTime(item)" class="time-picker-list-item"
+                      v-class="active: activeIndex == $index, hover: hoverIndex == $index">
+                {{item}}</span>
+            </div>
+        </div>
+    </script>
+
+</head>
+<body>
+
+    <div id="demo"></div>
+
+    <script src="../../../bower_components/vue/dist/vue.js"></script>
+    <script>
+        Vue.component('timePicker', {
+            inherit: true,
+            data: function(){
+                return {
+                    item_height: 26,
+                    isOpened: false,
+                    nowTime: undefined,
+                    hoverIndex: NaN,
+                    scrollTop: 0
+                };
+            },
+            computed:{
+                items: function () {
+                    var totalM = 24 * 60,
+                        interval = this.interval,
+                        result = [];
+                    function formatTime(minute){
+                        var hour = 0;
+                        function zero(v){
+                            return (v>>0)<10?"0"+v:v;
+                        }
+                        if(minute > 60) {
+                            hour = parseInt(minute/60);
+                            minute = parseInt(minute%60);
+                        }
+                        return [zero(hour),zero(minute)].join(":");
+                    }
+                    for(var i = interval; i <= totalM; i += interval)
+                        result.push(formatTime(i));
+                    return result;
+                },
+                initHoverIndex: function(){
+                    var curDate = this.nowTime;
+                    if(!curDate)
+                        return curDate;
+                    var curTime = curDate.getHours() * 60 + curDate.getMinutes();
+                    return  Math.ceil(curTime/this.interval - 1);
+                },
+                activeIndex: function(){
+                    var val = this.selectedItem;
+                    if(!val)
+                        return NaN;
+                    var curDate = new Date('0000:' + val);
+                    var curTime = curDate.getHours() * 60 + curDate.getMinutes();
+                    return Math.ceil(curTime/this.interval - 1);
+                }
+            },
+            methods: {
+                toggleOpen: function(){
+                    var isOpened = this.isOpened = !this.isOpened;
+                    if(isOpened){
+                        var activeIndex = this.activeIndex;
+                        var curTimeIndex = activeIndex;
+                        if(!activeIndex && activeIndex !== 0) {
+                            this.nowTime = new Date();
+                            curTimeIndex = this.initHoverIndex;
+                        }
+                        this.scrollTop = this.item_height * (curTimeIndex + 1) - this.listHeight/2;
+                    }else{
+                        this.hoverIndex && (this.selectedItem = this.items[this.hoverIndex]);
+                        this.hoverIndex = undefined;
+                    }
+                },
+                listUp: function(){
+                    var isOpened = this.isOpened;
+                    var activeIndex = this.activeIndex;
+                    var len = this.items.length;
+                    if(isOpened){
+                        if(!this.hoverIndex){
+                            if(activeIndex || activeIndex === 0){
+                                this.hoverIndex = activeIndex;
+                            }else{
+                                this.nowTime = new Date();
+                                this.hoverIndex = this.initHoverIndex;
+                            }
+                        }
+                        var index = this.hoverIndex;
+                        if(--index < 0)
+                            this.hoverIndex = len;
+                        else
+                            this.hoverIndex = index;
+
+                        this.scrollTop = this.item_height * (index + 1) - this.listHeight/2;
+                    }else{
+                        var index = this.activeIndex;
+                        if(--index < 0)
+                            this.selectedItem = this.items[len];
+                        else
+                            this.selectedItem = this.items[index];
+                    }
+                },
+                listDown: function(){
+                    var isOpened = this.isOpened;
+                    var len = this.items.length;
+                    if(isOpened){
+                        if(!this.hoverIndex){
+                            var activeIndex = this.activeIndex;
+                            if(activeIndex || activeIndex === 0){
+                                this.hoverIndex = activeIndex;
+                            }else{
+                                this.nowTime = new Date();
+                                this.hoverIndex = this.initHoverIndex;
+                            }
+                        }
+                        var index = this.hoverIndex;
+                        if(++index > len)
+                            this.hoverIndex = 0;
+                        else
+                            this.hoverIndex = index;
+
+                        this.scrollTop = this.item_height * (index + 1) - this.listHeight/2;
+                    }else{
+                        var index = this.activeIndex;
+                        if(++index > len)
+                            this.selectedItem = this.items[0];
+                        else
+                            this.selectedItem = this.items[index];
+                    }
+                },
+                changeSelectedTime: function(item){
+                    this.selectedItem = item;
+                    this.isOpened = false;
+                    this.hoverIndex = undefined;
+                }
+            },
+            template: '#timePickerTemp'
+        });
+
+        Vue.directive('scroll', {
+            bind: function () {
+                // 做绑定的准备工作
+                // 比如添加事件监听器，或是其他只需要执行一次的复杂操作
+            },
+            update: function (newValue, oldValue) {
+                var el = this.el,
+                    start = el.scrollTop,
+                    during = parseInt(newValue);
+                var s = Math.round((during - start)/40);
+                var _run = function() {
+                    start += s;
+                    if(s >= 0 && start > during || s <= 0 && start < during)
+                        start = during;
+                    el.scrollTop = start;
+                    if (start != during)
+                        requestAnimationFrame(_run);
+                };
+                if(oldValue || oldValue === 0)
+                    _run();
+            },
+            unbind: function () {
+                // 做清理工作
+                // 比如移除在 bind() 中添加的事件监听器
+            }
+        })
+
+        var vm = new Vue({
+            el: '#demo',
+            data:{
+                interval: 10,
+                selectedItem: '',
+                height: 40,
+                width: 80,
+                listHeight: 150
+            },
+            //replace: false,
+            template:'<time-picker></time-picker>'
+        });
+
+        window.requestAnimFrame = (function(){
+            return  window.requestAnimationFrame       ||
+                    window.webkitRequestAnimationFrame ||
+                    window.mozRequestAnimationFrame    ||
+                    window.msRequestAnimationFrame    ||
+                    function( callback ){
+                        window.setTimeout(callback, 1000 / 60);
+                    };
+        })();
+
+    </script>
+</body>
+</html>
