@@ -1,0 +1,5 @@
+<div class="timer" v-style="width: width + 'px', height: height + 'px'">
+    <div class="timer-bar">
+        <div v-refresh="refresh" class="timer-bar-info" v-on="webkitAnimationEnd: animationEnd" v-class="start: isStart, paused: isEnd" v-style="-webkit-animation-duration: seconds + 's'"></div>
+    </div>
+</div>

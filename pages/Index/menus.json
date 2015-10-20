@@ -116,4 +116,13 @@
 	  "href": "/Examples/pages/css-learning-notes/doc/note2.html"
 	}
   ]
+},{
+  "icon": "fa fa-th-list",
+  "title": "Vue.js",
+  "subMenus": [
+	{
+	  "title": "初学Vue制作的demo",
+	  "href": "/Examples/pages/webapp/index.html"
+	}
+  ]
 }]

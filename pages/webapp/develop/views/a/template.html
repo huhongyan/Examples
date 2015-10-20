@@ -1,0 +1,6 @@
+<div class="view" v-transition>
+    <app-timer seconds="{{* seconds}}" refresh="{{refresh}}" is-start="{{isStart}}" is-end="{{@ isEnd}}" width="{{width}}" height="{{height * 0.2}}"></app-timer>
+    <app-puzzle url="{{url}}" refresh="{{refresh}}" is-start="{{@ isStart}}" is-end="{{@ isEnd}}" is-completed="{{@ isCompleted}}" width="{{width * 0.65}}" height="{{height * 0.8}}" con-ratio="{{conRatio}}"></app-puzzle>
+    <app-pane url="{{url}}" width="{{width * 0.35}}" height="{{height * 0.8}}" con-ratio="{{conRatio}}"></app-pane>
+    <app-popup refresh="{{@ refresh}}" is-start="{{@ isStart}}" is-completed="{{@ isCompleted}}" is-end="{{@ isEnd}}" index="{{index}}"></app-popup>
+</div>

@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Flex盒模型</title>
+    <style>
+        *, *:before, *:after{
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #f5f5f5;
+            line-height: 1.8em;
+            margin: 0;
+            font-size: 14px;
+        }
+        h2, h3{
+            padding-left: 20px;
+        }
+        h3 {
+            margin: 0;
+            background-color: #fff;
+            font-weight: normal;
+        }
+        .module{
+            padding: 20px;
+        }
+        .module:after{
+            display: table;
+            content: '';
+            clear: both;
+        }
+        .module-half{
+            float: left;
+            background-color: #f3f3f3;
+            width: 480px;
+            margin-bottom: 10px;
+            margin-right: 20px;
+            box-shadow: 1px 1px 3px rgba(0,0,0,.16);
+            min-height: 100px;
+            padding: 10px;
+        }
+        .demo{
+            display: -webkit-flex;
+            margin-bottom: 10px;
+        }
+        .demo > *{
+            text-align: center;
+            min-height: 35px;
+            color: #fff;
+        }
+        .demo > :first-child{
+            background-color: #ff5340;
+        }
+        .demo > :nth-child(2){
+            background-color: #36a8ff;
+        }
+        .demo > :nth-child(3){
+            background-color: #1ab908;
+        }
+        .demo p, pre{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<h2>Web的Flex弹性盒模型</h2>
+<div class="wrap">
+    <h3>[flex]</h3>
+    <div class="module">
+        <div class="module-half">
+            <pre>display:-webkit-flex;</pre>
+            <div class="demo">
+                <span style="width: 100px;">width: 100px;</span>
+                <span style="flex: 2">flex: 2</span>
+                <span style="flex: 1">flex: 1</span>
+            </div>
+        </div>
+        <div class="module-half">
+            <pre>display:-webkit-flex;</pre>
+            <div class="demo">
+                <div style="width: 150px;margin-right: 10px;">
+                    <p>width: 150px;</p>
+                    <p>margin-right: 10px;</p>
+                </div>
+                <div style="flex: 1">flex: 1</div>
+                <div style="width: 150px; margin-left: 10px;">
+                    <p>width: 150px;</p>
+                    <p>margin-left: 10px;</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrap">
+    <h3>[flex-direction]</h3>
+    <div class="module">
+        <div class="module-half">
+            <pre>flex-direction:row; /* default */<br/>display:-webkit-flex;</pre>
+            <div class="demo">
+                <span style="flex: 1">flex: 1</span>
+                <span style="flex: 2">flex: 2</span>
+                <span style="flex: 3">flex: 3</span>
+            </div>
+        </div>
+        <div class="module-half">
+            <pre>flex-direction:row-reverse;<br/>display:-webkit-flex;</pre>
+            <div class="demo" style="flex-direction:row-reverse;">
+                <span style="flex: 1">flex: 1</span>
+                <span style="flex: 2">flex: 2</span>
+                <span style="flex: 3">flex: 3</span>
+            </div>
+        </div>
+        <div class="module-half" style="height: 265px;">
+            <pre>flex-direction:column;<br/>display:-webkit-flex;</pre>
+            <div class="demo" style="flex-direction:column;height: 200px;">
+                <span style="flex: 1">flex: 1</span>
+                <span style="flex: 2">flex: 2</span>
+                <span style="flex: 3">flex: 3</span>
+            </div>
+        </div>
+        <div class="module-half" style="height: 265px;">
+            <pre>flex-direction:column-reverse;<br/>display:-webkit-flex;</pre>
+            <div class="demo" style="flex-direction:column-reverse;height: 200px;">
+                <span style="flex: 1">flex: 1</span>
+                <span style="flex: 2">flex: 2</span>
+                <span style="flex: 3">flex: 3</span>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="wrap">
+    <h3>[flex-wrap]</h3>
+    <div class="module">
+        <div class="module-half">
+            <pre>-webkit-flex-wrap:nowrap;/* default */<br/>display:-webkit-flex;<br/>width:400px;</pre>
+            <div class="demo" style="width:400px;">
+                <span style="width: 100px;">width: 100px;</span>
+                <span style="width: 200px;">width: 200px;</span>
+                <span style="width: 300px;">width: 300px;</span>
+            </div>
+        </div>
+        <div class="module-half">
+            <pre>-webkit-flex-wrap:wrap;<br/>display:-webkit-flex;<br/>width:400px;</pre>
+            <div class="demo" style="-webkit-flex-wrap:wrap;width:400px;">
+                <span style="width: 100px;">width: 100px;</span>
+                <span style="width: 200px;">width: 200px;</span>
+                <span style="width: 300px;">width: 300px;</span>
+            </div>
+        </div>
+        <div class="module-half">
+            <pre>-webkit-flex-wrap:wrap-reverse;<br/>display:-webkit-flex;<br/>width:400px;</pre>
+            <div class="demo" style="-webkit-flex-wrap:wrap-reverse;width:400px;">
+                <span style="width: 100px;">width: 100px;</span>
+                <span style="width: 200px;">width: 200px;</span>
+                <span style="width: 300px;">width: 300px;</span>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h3>[flex-flow]: flex-direction flex-wrap;</h3>
+        <div class="module"></div>
+    </div>
+    <div class="wrap">
+        <h3>[justify-content]</h3>
+        <div class="module">
+            <div class="module-half">
+                <pre>/* 效果如同float:left;*/<br/>justify-content:flex-start;/* default */<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="width: 400px; border: 1px dashed #999;">
+                    <span style="width: 100px;">width: 100px;</span>
+                    <span style="width: 100px;">width: 100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>/* 效果如同float:right;*/<br/>justify-content:flex-end;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="justify-content:flex-end;width: 400px; border: 1px dashed #999;">
+                    <span style="width: 100px;">width: 100px;</span>
+                    <span style="width: 100px;">width: 100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>/* 水平居中方案 */<br/>justify-content:center;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="justify-content:center;width: 400px; border: 1px dashed #999;">
+                    <span style="width: 100px;">width: 100px;</span>
+                    <span style="width: 100px;">width: 100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>/* 两头 */<br/>justify-content:space-between;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="justify-content:space-between;width: 400px; border: 1px dashed #999;">
+                    <span style="width: 100px;">width: 100px;</span>
+                    <span style="width: 100px;">width: 100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>/* 按间距划分 */<br/>justify-content:space-around;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="justify-content:space-around;width: 400px; border: 1px dashed #999;">
+                    <span style="width: 100px;">width: 100px;</span>
+                    <span style="width: 100px;">width: 100px;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h3>[align-self]</h3>
+        <div class="module">
+            <div class="module-half" STYLE="width: auto;">
+                <pre>display:-webkit-flex;</pre>
+                <div class="demo" style="height: 200px; border: 1px dashed #999;">
+                    <span style="align-self:flex-start">align-self:flex-start</span>
+                    <span style="align-self:flex-end">align-self:flex-end</span>
+                    <span style="align-self:center">align-self:center</span>
+                    <span style="align-self:auto; background-color: #ff5470;">align-self:auto;<br>/* default */</span>
+                    <span style="align-self:baseline; background-color: #BED02C;">align-self:baseline;</span>
+                    <span style="align-self:stretch; background-color: #8f64ff;">align-self:stretch;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wrap">
+        <h3>[align-items]</h3>
+        <div class="module">
+            <div class="module-half">
+                <pre>align-items: flex-start;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="height: 200px; border: 1px dashed #999;align-items: flex-start;">
+                    <span>width:100px;</span>
+                    <span>width:100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>align-items: flex-end;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="height: 200px; border: 1px dashed #999;align-items: flex-end;">
+                    <span>width:100px;</span>
+                    <span>width:100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>align-items: center;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="height: 200px; border: 1px dashed #999;align-items: center;">
+                    <span>width:100px;</span>
+                    <span>width:100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>align-items: baseline;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="height: 200px; border: 1px dashed #999;align-items: baseline;">
+                    <span>width:100px;</span>
+                    <span>width:100px;</span>
+                </div>
+            </div>
+            <div class="module-half">
+                <pre>align-items: stretch;<br/>display:-webkit-flex;</pre>
+                <div class="demo" style="height: 200px; border: 1px dashed #999;align-items: stretch;">
+                    <span style="height: 100px; width: 100px;">height: 100px;</span>
+                    <span style="min-height: 20px; flex: 1">min-height: 20px;</span>
+                    <span style="max-height: 60px; flex: 1">max-height: 60px;</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
