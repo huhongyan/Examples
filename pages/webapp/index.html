@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Photo Puzzle</title>
+</head>
+<body>
+<script type="x-template" id="main_temp">
+    <div v-style="height: height + 'px', width: width + 'px', transform: 'rotate(' + (isVertical ? 90 : 0) + 'deg) translateY(' + (isVertical ? -height : 0) + 'px)'">
+        <img class="bg-img" v-attr="src: url" v-style="height: height + 'px', width: width + 'px'"/>
+        <component is="{{view}}" url="{{url}}" index="{{currentIndex}}" width="{{width}}" height="{{height}}" v-style="height: height + 'px', width: width + 'px'"></component>
+    </div>
+</script>
+<div id="app"></div>
+<script src="release/bundle.js"></script>
+</body>
+</html>
