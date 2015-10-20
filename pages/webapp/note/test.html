@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+
+        *{
+            box-sizing: border-box;
+        }
+
+        #wrapper {
+          position: relative;
+        }
+
+        #sidebar{
+            position: absolute;
+            width: 300px;
+            margin-right: 40px;
+            top: 0;
+            bottom: 0;
+        }
+
+        #main{
+            width: 100%;
+            padding-left: 330px;
+        }
+        #main .content, #sidebar{
+            border: 1px solid #ddd;
+            box-shadow: 1px 1px 3px rgba(0,0,0,.3);
+        }
+
+    </style>
+</head>
+<body>
+<div id="wrapper">
+    <div id="sidebar"></div>
+    <div id="main">
+        <div class="content" style="min-height: 500px"></div>
+    </div>
+</div>
+
+</body>
+</html>

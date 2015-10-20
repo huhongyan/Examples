@@ -1,0 +1,6 @@
+<div class="puzzle" v-refresh="refresh" v-style="width: width + 'px', height: height + 'px'">
+    <div class="puzzle-container" v-style="width: containerWidth + 'px', height: containerHeight + 'px'" >
+        <!--<img v-attr="src: url" alt="拼图" v-style="width: imgWidth + 'px', height: imgHeight + 'px'"/>-->
+        <canvas  v-repeat="9" v-on="touchstart: touchItemStart, touchend:touchItemEnd"></canvas>
+    </div>
+</div>

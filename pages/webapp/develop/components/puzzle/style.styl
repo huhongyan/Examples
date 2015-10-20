@@ -1,0 +1,17 @@
+.puzzle
+  position absolute
+  left 0
+  bottom 0
+  display -webkit-flex
+  justify-content flex-end
+  align-items flex-start
+  .puzzle-container
+    background-color #fff
+    border 1px solid #ddd
+    padding 4px 3px 3px 4px
+    position relative
+    canvas
+      position absolute
+      transition all .4s ease
+      &.selected
+        outline 1px solid #12697B

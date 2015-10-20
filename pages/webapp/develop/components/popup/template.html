@@ -1,0 +1,7 @@
+<div class="popup" v-show="isEnd" v-transition="fade">
+    <div class="info-container">
+        <p > {{isCompleted ? '恭喜你！': '失败了！'}}</p>
+        <botton class="btn btn-refresh" v-on="touchstart: refreshPage">重新开始</botton>
+        <botton class="btn btn-next" v-show="isCompleted" v-on="touchstart: gotoNext">下一关</botton>
+    </div>
+</div>

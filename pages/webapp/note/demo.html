@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>demo</title>
+    <style>
+        /* 为了使用rem来布局， 但文字等一些需要固定的地方，不能使用rem*/
+        /*默认320px*/
+        html{
+            font-size: 32px;
+        }
+        /*iphone6*/
+        @media (min-device-width: 375px) {
+            html{font-size: 37.5px;}
+        }
+        /*iphone6 plus*/
+        @media (min-device-width: 414px){
+            html{font-size: 41.4px;}
+        }
+
+        /* 单行文本溢出*/
+        .inaline{
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+        /* 多行文本溢出*/
+        .intwoline{
+            display: -webkit-box !important;
+            overflow: hidden;
+
+            text-overflow: ellipsis;
+            word-break: break-all;
+
+            -webkit-box-orient: vertical; /*方向*/
+            -webkit-line-clamp:2; /*行数*/
+        }
+
+        body{
+            overflow: scroll;
+            -webkit-overflow-scrolling: touch;
+        }
+
+    </style>
+</head>
+<body>
+
+</body>
+</html>
