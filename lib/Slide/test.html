@@ -9,47 +9,126 @@
             padding: 0;
             margin: 0;
         }
+        .thumbnail-container{
+            margin: auto;
+        }
     </style>
 </head>
 <body>
+<div class="thumbnail-container" id="thumbnail">
+    <button class="thumbnail-btn btn-prev disable"></button>
+    <button class="thumbnail-btn btn-next"></button>
+    <div class="thumbnail-slide-container">
+        <ul class="thumbnail-list"></ul>
+    </div>
+</div>
 <button id="btn">Test Slide</button>
+
 <script src="lib/jquery.min.js"></script>
 <script src="./js/slide.js"></script>
 <script>
     $(function(){
+        var imgArray = [
+            {
+                src: "./test_img/1.jpg",
+                title: "这是一个角落里暗戳戳的标题",
+                abc: "11111"
+            },{
+                src: "./test_img/2.jpg",
+                title: "这是一个角落里暗戳戳的标题"
+            },{
+                src: "./test_img/3.jpg",
+                title: "这是一个角落里暗戳戳的标题"
+            },{
+                src: "./test_img/4.jpg",
+                title: "这是一个角落里暗戳戳的标题"
+            },{
+                src: "./test_img/5.jpg",
+                title: "这是一个角落里暗戳戳的标题"
+            }
+        ],
+            $thumbnail = $("#thumbnail"),
+            $list = $thumbnail.find('.thumbnail-list'),
+            space = 520,
+            count = imgArray.length;
+
+        function initPage(imgArray){
+            var len = imgArray.length,
+                html = [];
+            for(var i = 0; i < len; i++){
+                var img = imgArray[i];
+                html.push('<li class="thumbnail-item"><button class="thumbnail-btn btn-close"></button><img src="'+ img.src +'" alt="'+ img.title +'"/></li>');
+            }
+            $list.append(html.join(""));
+
+            if(len <= 2){
+                $thumbnail.find('.btn-next').addClass('disable');
+            }
+        }
+
         var slide = new Slide({
-            imgArray: [
-                {
-                    src: "./test_img/1.jpg",
-                    title: "这是一个角落里暗戳戳的标题",
-                    abc: "11111"
-                },{
-                    src: "./test_img/2.jpg",
-                    title: "这是一个角落里暗戳戳的标题"
-                },{
-                    src: "./test_img/3.jpg",
-                    title: "这是一个角落里暗戳戳的标题"
-                },{
-                    src: "./test_img/4.jpg",
-                    title: "这是一个角落里暗戳戳的标题"
-                },{
-                    src: "./test_img/5.jpg",
-                    title: "这是一个角落里暗戳戳的标题"
-                }
-            ],
+            imgArray: imgArray,
             duration: 0.5,
             deleteCallback: function(deletedIndex, deletedImg){
                 console.log(deletedIndex);
                 console.log(deletedImg);
             }
         });
-        $('#btn').click(function(){
-            slide.open(2);
-        });
 
         $(window).resize(function(){
             slide.resize();
         });
+
+        $thumbnail.on('click', '.thumbnail-item > img', function(evt){
+            slide.open($(this).parent().index());
+        }).on('click', '.btn-close', function(){
+            var $li = $(this).parent();
+            var index = $li.index();
+
+            // 在小slide里删除效果
+            $li.remove();
+            count--;
+            if(index == count && (count % 2) == 0){
+                $list.css("transform", "translate3d(" + -(space * (index / 2 - 1)) +"px, 0, 0)");
+                $thumbnail.find('.btn-next').addClass('disable');
+            }
+
+            // ... 这里要不要在本地的imgArray里删除对应的数据？？？
+            // TODO
+
+
+            slide.deleteImg(index);
+
+            // ... 后台操作...
+            // TODO
+
+        }).on('click', '.btn-prev:not(.disable)', function(){
+            var index = -1, transform = parseInt($list.css("transform").split(",")[4]) || 0;
+
+            if(transform){
+                index = Math.ceil(parseFloat(transform / space)) + 1;
+            }
+
+            $list.css("transform", "translate3d(" + (space * index) +"px, 0, 0)");
+            $thumbnail.find('.btn-next').removeClass('disable');
+            if(index >= 0){
+                this.className += " disable";
+            }
+        }).on('click', '.btn-next:not(.disable)', function(){
+            var index = -1, transform = parseInt($list.css("transform").split(",")[4]) || 0;
+
+            if(transform){
+                index = Math.ceil(parseFloat(transform / space)) - 1;
+            }
+            $list.css("transform", "translate3d(" + (space * index) +"px, 0, 0)");
+            $thumbnail.find('.btn-prev').removeClass('disable');
+            if(-(index - 1) * 2 >= count){
+                this.className += " disable";
+            }
+        });
+
+        // 初始化页面
+        initPage(imgArray);
     });
 </script>
 </body>

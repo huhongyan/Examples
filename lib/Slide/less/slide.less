@@ -64,6 +64,8 @@
       white-space: nowrap;
       height: 100%;
       transition: transform ease-out 2s;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
       .slide-img-item{
         display: inline-block;
         width: 100%;
@@ -89,6 +91,8 @@
       padding: 0;
       list-style: none;
       transition: transform ease-out;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
       .slide-title {
         margin-left: 35px;
         width: 350px;
@@ -97,5 +101,91 @@
         text-overflow: ellipsis;
       }
     }
+  }
+}
+
+// 缩略图
+.thumbnail-container{
+  width: 560px;
+  height: 266px;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid;
+  .thumbnail-slide-container{
+    width: 520px;
+    height: 224px;
+    overflow: hidden;
+    margin: 20px auto;
+    .thumbnail-list{
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      white-space: nowrap;
+      transition: transform ease-out .5s;
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+      height: 100%;
+      .thumbnail-item{
+        display: inline-block;
+        width: 245px;
+        height: 100%;
+        margin-right: 15px;
+        background-color: #f5f5f5;
+        position: relative;
+        text-align: center;
+        &:after{
+          content: "";
+          display: inline-block;
+          height: 100%;
+          vertical-align: middle;
+        }
+        > img{
+          max-width: 195px;
+          max-height: 192px;
+          border: none;
+          border-radius: 2px;
+          margin: auto;
+          display: inline-block;
+          vertical-align: middle;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .thumbnail-btn{
+    position: absolute;
+    z-index: 9;
+    width: 20px;
+    height: 30px;
+    cursor: pointer;
+    border: none;
+    background: url(../image/btn-icon-small.png) no-repeat;
+    outline: none;
+    &.disable{
+      cursor: default;
+    }
+  }
+  .btn-close{
+    height: 20px;
+    top: 0;
+    right: 0;
+    &:hover {
+      background-position: -20px 0;
+    }
+  }
+  .btn-prev{
+    top: 50%;
+    margin-top: -15px;
+    left: 5px;
+    background-position: 0 -20px;
+  }
+  .btn-next{
+    top: 50%;
+    margin-top: -15px;
+    right: 5px;
+    background-position: -20px -20px;
   }
 }
