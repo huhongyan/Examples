@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="./css/slide.css"/>
+    <style>
+        body{
+            padding: 0;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+<button id="btn">Test Slide</button>
+<script src="lib/jquery.min.js"></script>
+<script src="./js/slide.js"></script>
+<script>
+    $(function(){
+        var slide = new Slide({
+            imgArray: [
+                {
+                    src: "./test_img/1.jpg",
+                    title: "这是一个角落里暗戳戳的标题",
+                    abc: "11111"
+                },{
+                    src: "./test_img/2.jpg",
+                    title: "这是一个角落里暗戳戳的标题"
+                },{
+                    src: "./test_img/3.jpg",
+                    title: "这是一个角落里暗戳戳的标题"
+                },{
+                    src: "./test_img/4.jpg",
+                    title: "这是一个角落里暗戳戳的标题"
+                },{
+                    src: "./test_img/5.jpg",
+                    title: "这是一个角落里暗戳戳的标题"
+                }
+            ],
+            duration: 0.5,
+            deleteCallback: function(deletedIndex, deletedImg){
+                console.log(deletedIndex);
+                console.log(deletedImg);
+            }
+        });
+        $('#btn').click(function(){
+            slide.open(2);
+        });
+
+        $(window).resize(function(){
+            slide.resize();
+        });
+    });
+</script>
+</body>
+</html>
