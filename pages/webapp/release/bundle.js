@@ -115,10 +115,10 @@
 	            return 'image/' + this.currentIndex + '.jpg';
 	        },
 	        height: function(){
-	            return window.innerWidth;
+	            return window.innerHeight;
 	        },
 	        width: function(){
-	            return window.innerHeight;
+	            return window.innerWidth;
 	        }
 	    },
 	    components: {

@@ -1,0 +1,424 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="format-detection" content="telephone=no">
+    <title>Photo Puzzle</title>
+</head>
+<body>
+<script type="x-template" id="main_temp">
+    <div v-style="height: height + 'px', width: width + 'px'">
+        <img class="bg-img" v-attr="src: url" v-style="height: height + 'px', width: width + 'px'"/>
+        <component is="{{view}}" url="{{url}}" index="{{currentIndex}}" width="{{width}}" height="{{height}}" v-style="height: height + 'px', width: width + 'px'"></component>
+    </div>
+</script>
+<div id="app"></div>
+<script src="release/bundle.js"></script>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="format-detection" content="telephone=no">
+    <title>播出分析</title>
+    <link rel="stylesheet" href="css/broadcastAnalysis.css"/>
+    <link rel="stylesheet" href="lib/swiper-3.2.5.min.css"/>
+    <style>
+
+        html, body {
+            position: relative;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        img{
+            max-width: 100%;
+            vertical-align: middle;
+            max-height: 100%;
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+            -webkit-backface-visibility:hidden;
+            backface-visibility: hidden;
+            -webkit-perspective:1000;
+            perspective:1000;
+        }
+        #slide{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: -99;
+            opacity: 0;
+            background-color: #353535;
+            transition: opacity ease-in .2s;
+        }
+        .swiper-slide{
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-align-items: center;
+            align-items: center;
+            overflow: hidden;
+        }
+        .swiper-container{
+            height: 100%;
+            width: 100%;
+        }
+        #num-pagination {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            color: #fff;
+            font-size: 25px;
+            z-index: 999;
+        }
+        #active-num {
+            font-size: 14px;
+            line-height: 14px;
+            float: left;
+        }
+    </style>
+</head>
+<body>
+<div id="page">
+    <div class="module">
+        <h2 class="module-title">综合统计</h2>
+        <div>
+            <img src="./image/10.jpg" alt=""/>
+            <img src="./image/8.jpg" alt=""/>
+            <img src="./image/9.jpg" alt=""/>
+            <img src="./image/0.jpg" alt=""/>
+            <img src="./image/5.jpg" alt=""/>
+            <img src="./image/11.jpg" alt=""/>
+            <img src="./image/7.jpg" alt=""/>
+        </div>
+    </div>
+    <div class="module">
+        <h2 class="module-title">主要频道播出情况 <a href="javascript:;" class="goback"></a></h2>
+        <ul class="channel-list">
+            <li class="channel-list-item">
+                <div class="child">
+                    <div class="channel-name">湖南卫视</div>
+                    <div>收视率(%)</div>
+                    <div class="fc-ff6000">0.666</div>
+                </div>
+                <div class="child">
+                    <div>2014-11-11</div>
+                    <div>收视率(000)</div>
+                    <div class="fc-ff6000">200.123</div>
+                </div>
+                <div class="child">
+                    <div>黄金档</div>
+                    <div>市场份额(%)</div>
+                    <div class="fc-ff6000">0.678</div>
+                </div>
+            </li>
+            <li class="channel-list-item">
+                <div class="child">
+                    <div class="channel-name">湖南卫视</div>
+                    <div>收视率(%)</div>
+                    <div class="fc-ff6000">0.666</div>
+                </div>
+                <div class="child">
+                    <div>2014-11-11</div>
+                    <div>收视率(000)</div>
+                    <div class="fc-ff6000">200.123</div>
+                </div>
+                <div class="child">
+                    <div>黄金档</div>
+                    <div>市场份额(%)</div>
+                    <div class="fc-ff6000">0.678</div>
+                </div>
+            </li>
+            <li class="channel-list-item">
+                <div class="child">
+                    <div class="channel-name">湖南卫视</div>
+                    <div>收视率(%)</div>
+                    <div class="fc-ff6000">0.666</div>
+                </div>
+                <div class="child">
+                    <div>2014-11-11</div>
+                    <div>收视率(000)</div>
+                    <div class="fc-ff6000">200.123</div>
+                </div>
+                <div class="child">
+                    <div>黄金档</div>
+                    <div>市场份额(%)</div>
+                    <div class="fc-ff6000">0.678</div>
+                </div>
+            </li>
+            <li class="channel-list-item">
+                <div class="child">
+                    <div class="channel-name">湖南卫视</div>
+                    <div>收视率(%)</div>
+                    <div class="fc-ff6000">0.666</div>
+                </div>
+                <div class="child">
+                    <div>2014-11-11</div>
+                    <div>收视率(000)</div>
+                    <div class="fc-ff6000">200.123</div>
+                </div>
+                <div class="child">
+                    <div>黄金档</div>
+                    <div>市场份额(%)</div>
+                    <div class="fc-ff6000">0.678</div>
+                </div>
+            </li>
+            <li class="channel-list-item">
+                <div class="child">
+                    <div class="channel-name">湖南卫视</div>
+                    <div>收视率(%)</div>
+                    <div class="fc-ff6000">0.666</div>
+                </div>
+                <div class="child">
+                    <div>2014-11-11</div>
+                    <div>收视率(000)</div>
+                    <div class="fc-ff6000">200.123</div>
+                </div>
+                <div class="child">
+                    <div>黄金档</div>
+                    <div>市场份额(%)</div>
+                    <div class="fc-ff6000">0.678</div>
+                </div>
+            </li>
+            <li class="channel-list-item">
+                <div class="child">
+                    <div class="channel-name">湖南卫视</div>
+                    <div>收视率(%)</div>
+                    <div class="fc-ff6000">0.666</div>
+                </div>
+                <div class="child">
+                    <div>2014-11-11</div>
+                    <div>收视率(000)</div>
+                    <div class="fc-ff6000">200.123</div>
+                </div>
+                <div class="child">
+                    <div>黄金档</div>
+                    <div>市场份额(%)</div>
+                    <div class="fc-ff6000">0.678</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="module">
+        <h2 class="module-title">播出热度</h2>
+        <div>
+            <img src="./image/2.jpg" alt=""/>
+        </div>
+    </div>
+</div>
+<div id="slide">
+    <div class="swiper-container">
+        <div class="swiper-wrapper"></div>
+        <div id="num-pagination">
+            <span id="active-num"></span>/<span id="all-num"></span>
+        </div>
+    </div>
+</div>
+<script src="./lib/jquery.min.js"></script>
+<script src="./lib/swiper-3.2.5.jquery.min.js"></script>
+<script src="lib/hammer.js"></script>
+<script>
+    $(function(){
+        var slide = [];
+        var $slide = $("#slide");
+        var $aNum = $("#active-num");
+        var conH = $slide.height();
+        var conW = $slide.width();
+        var maxScale = 3;
+        var doubleTapScale = 2;
+
+        $("#page").find("img").each(function(i, el){
+            slide.push('<div class="swiper-slide"><img src="'+ this.src +'"></div>');
+
+            var timer;
+            $(el).on("click", function(e){
+                clearTimeout(timer);
+                timer = setTimeout(function(){
+                    $slide.css({
+                        "z-index": 9999,
+                        "opacity": 1
+                    });
+                }, 100);
+                my.slideTo(i);
+                $("#active-num").text(i + 1);
+                my.onResize();
+            })
+        });
+
+        var my = new Swiper('.swiper-container', {
+            onSlideChangeStart: function(swiper){
+                $aNum.text(swiper.activeIndex+1);
+
+                // 1. 判断当前的图片是否放大状态
+                var el = null;
+                switch (swiper.swipeDirection){
+                    case "next":
+                        el = swiper.slides[swiper.activeIndex - 1];
+                        break;
+                    case "prev":
+                        el = swiper.slides[swiper.activeIndex + 1];
+                        break;
+                }
+                if(el){
+                    $(el).find(">img").css({
+                        "-webkit-transform": "scale(1) translateZ(0)",
+                        "transform": "scale(1) translateZ(0)"
+                    }).get(0).isScale = false;
+                }
+            }
+        });
+
+        $(".swiper-wrapper").html(slide.join(""));
+        $("#all-num").text(slide.length);
+
+        function hideSlide(){
+            $slide.css({
+                "z-index": -9999,
+                "opacity": 0
+            });
+            var el = my.slides[my.activeIndex];
+            $(el).find(">img").css({
+                "-webkit-transform": "scale(1) translateZ(0)",
+                "transform": "scale(1) translateZ(0)"
+            }).get(0).isScale = false;
+        }
+
+        $slide.on("click", function(){
+            hideSlide();
+        }).find("img").each(function(i, el){
+            var hammer = new Hammer(el);
+            hammer.get('pinch').set({ enable: true });
+            hammer.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+            var $el = $(el);
+            var timer;
+            var height = 0;
+            var width = 0;
+
+            hammer.on("doubletap", function(ev){
+                clearTimeout(timer);
+                if(!el.isScale){
+                    el.isScale = true;
+                    $el.css({"transform" : "scale("+doubleTapScale+") translateZ(0)", "-webkit-transform" : "scale("+doubleTapScale+") translateZ(0)"});
+                }else{
+                    el.isScale = false;
+                    $el.css({"transform" : "scale(1) translateZ(0)", "-webkit-transform" : "scale(1) translateZ(0)"});
+                }
+
+            }).on("panstart", function(ev){
+                // 1. 判断是否为放大状态
+                if(el.isScale){
+                    my.lockSwipes();
+
+                    // 2. 提取上次拖动的偏移量
+                    var transform = $el.css("transform");
+                    var matrix = transform.split(/[,\(\)]/g);
+                    var deltaX = Number(matrix[5]);
+                    var scale = Number(matrix[1]);
+
+                    height || (height = $el.height());
+                    width || (width = $el.width());
+
+                    var maxDeltaX = (width * scale - conW) / 2;
+                    maxDeltaX = el.maxDeltaX = maxDeltaX < 0 ? 0 : maxDeltaX;
+
+                    var maxDeltaY = (height * scale - conH) / 2;
+                    el.maxDeltaY = maxDeltaY < 0 ? 0 : maxDeltaY;
+
+                    if(maxDeltaX && Math.abs(deltaX) == maxDeltaX){
+                        my.unlockSwipes();
+                    }
+
+                    el.deltaX = deltaX;
+                    el.deltaY = Number(matrix[6]);
+                    el.scale = scale;
+                }
+            }).on("panend", function(ev){
+
+                // 1. 是否放大状态
+                if(el.isScale){
+                    var deltaY = ev.deltaY + el.deltaY;
+
+                    var maxDeltaY = el.maxDeltaY;
+                    if((maxDeltaY - Math.abs(deltaY)) < 0) {
+                        // 超出屏幕之外
+                        var scale = el.scale;
+                        var deltaX = Number($el.css("transform").split(/[,\(\)]/g)[5]);
+                        var matrix = "";
+                        if(deltaY < 0){
+                            // 方向向上
+                            matrix = "matrix("+ scale +", 0, 0, " + scale + ", " + deltaX + ", " + -maxDeltaY + ") translateZ(0)";
+                            $el.css({"transform" : matrix, "-webkit-transform" : matrix});
+                        }else if(deltaY > 0){
+                            // 方向向下
+                            matrix = "matrix("+ scale +", 0, 0, " + scale + ", " + deltaX + ", " + maxDeltaY + ") translateZ(0)";
+                            $el.css({"transform" : matrix, "-webkit-transform" : matrix});
+                        }
+                    }
+                }
+            }).on("panmove", function(ev){
+                if(!el.isScale)
+                    return;
+
+                var deltaX = el.deltaX + ev.deltaX;
+                var deltaY = ev.deltaY + el.deltaY;
+                var scale = el.scale;
+                var maxDeltaX = el.maxDeltaX;
+
+                if((maxDeltaX - Math.abs(deltaX)) > 0) {
+                    // 禁用滑动
+                    my.lockSwipes();
+
+                    // 移动图片
+                    var matrix = "matrix("+ scale +", 0, 0, " + scale + ", " + deltaX + ", " + deltaY + ") translateZ(0)";
+                    $el.css({"transform" : matrix, "-webkit-transform" : matrix});
+                }else{
+                    deltaY = Number($el.css("transform").split(/[,\(\)]/g)[6]);
+                    if(deltaX < 0){
+                        // 方向向左
+                        matrix = "matrix("+ scale +", 0, 0, " + scale + ", " + -maxDeltaX + ", " + deltaY + ") translateZ(0)";
+                        $el.css({"transform" : matrix, "-webkit-transform" : matrix});
+                    }else if(deltaX > 0){
+                        // 方向向右
+                        matrix = "matrix("+ scale +", 0, 0, " + scale + ", " + maxDeltaX + ", " + deltaY + ") translateZ(0)";
+                        $el.css({"transform" : matrix, "-webkit-transform" : matrix});
+                    }
+                }
+            }).on("pinchstart", function(){
+
+            }).on("pinchmove", function(ev){
+                var scale = ev.scale;
+                $el.css({"transform" : "scale("+ scale +") translateZ(0)", "-webkit-transform" : "scale("+ scale +") translateZ(0)"});
+            }).on("pinchend", function(ev){
+                var scale = ev.scale;
+
+                if(scale > maxScale){
+                    scale = maxScale;
+                    el.isScale = true;
+                }else if(scale > 1){
+                    el.isScale = true;
+                }else{
+                    scale = 1;
+                    el.isScale = false;
+                }
+                $el.css({"transform" : "scale("+ scale +") translateZ(0)", "-webkit-transform" : "scale("+ scale +") translateZ(0)"});
+            }).on("tap", function(){
+                clearTimeout(timer);
+                timer = setTimeout(function(){
+                    hideSlide();
+                }, 200);
+
+            });
+        });
+   });
+</script>
+</body>
+</html>

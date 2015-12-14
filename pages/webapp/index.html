@@ -8,7 +8,8 @@
 </head>
 <body>
 <script type="x-template" id="main_temp">
-    <div v-style="height: height + 'px', width: width + 'px', transform: 'rotate(' + (isVertical ? 90 : 0) + 'deg) translateY(' + (isVertical ? -height : 0) + 'px)'">
+    <div v-style="height: height + 'px', width: width + 'px'">
+        <!--//transform: 'rotate(' + (isVertical ? 90 : 0) + 'deg) translateY(' + (isVertical ? -height : 0) + 'px)'">-->
         <img class="bg-img" v-attr="src: url" v-style="height: height + 'px', width: width + 'px'"/>
         <component is="{{view}}" url="{{url}}" index="{{currentIndex}}" width="{{width}}" height="{{height}}" v-style="height: height + 'px', width: width + 'px'"></component>
     </div>

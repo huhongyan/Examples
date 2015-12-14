@@ -22,7 +22,7 @@
         <ul class="thumbnail-list"></ul>
     </div>
 </div>
-<button id="btn">Test Slide</button>
+<button id="btn">Add a new Image</button>
 
 <script src="lib/jquery.min.js"></script>
 <script src="./js/slide.js"></script>
@@ -44,6 +44,9 @@
                 title: "这是一个角落里暗戳戳的标题"
             },{
                 src: "./test_img/5.jpg",
+                title: "这是一个角落里暗戳戳的标题"
+            },{
+                src: "./test_img/6.jpg",
                 title: "这是一个角落里暗戳戳的标题"
             }
         ],
@@ -88,9 +91,17 @@
             // 在小slide里删除效果
             $li.remove();
             count--;
-            if(index == count && (count % 2) == 0){
-                $list.css("transform", "translate3d(" + -(space * (index / 2 - 1)) +"px, 0, 0)");
-                $thumbnail.find('.btn-next').addClass('disable');
+            if((count % 2) == 0){
+                if(count == index) {
+                    $thumbnail.find('.btn-next').addClass('disable');
+                    $list.css("transform", "translate3d(" + -(space * (index / 2 - 1)) +"px, 0, 0)");
+                }else if(index + 1 == count){
+                    $thumbnail.find('.btn-next').addClass('disable');
+                }
+
+                if(count == 2){
+                    $thumbnail.find('.btn-prev').addClass('disable');
+                }
             }
 
             // ... 这里要不要在本地的imgArray里删除对应的数据？？？
@@ -129,6 +140,26 @@
 
         // 初始化页面
         initPage(imgArray);
+
+        $("#btn").click(function(){
+            var img = {
+                src: "./test_img/7.jpg",
+                title: "这是一个角落里暗戳戳的标题"
+            };
+            slide && slide.addImage(img);
+
+            // ... 本地的数组要不要添加？？？
+            // TODO
+
+
+
+            $list.append('<li class="thumbnail-item"><button class="thumbnail-btn btn-close"></button><img src="'+ img.src +'" alt="'+ img.title +'"/></li>');
+            count += 1;
+            if((count % 2) != 0){
+                $thumbnail.find('.btn-next').removeClass('disable');
+            }
+
+        });
     });
 </script>
 </body>
