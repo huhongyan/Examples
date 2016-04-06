@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+    <title>个人信息</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <script src="./lib/rem.js"></script>
+    <link rel="stylesheet" href="./css/uploadPic.css"/>
+    <style>
+        .cus-info {
+            background-color: #fff;
+        }
+        .cus-info .cus-info-item {
+            display: block;
+            border-bottom: 1px solid #f4f4f4;
+            white-space: nowrap;
+            height: .46rem;
+            line-height: .46rem;
+            font-size: 14px;
+            color: #444444;
+            padding-right: .3rem;
+            padding-left: .2rem;
+            position: relative;
+        }
+        .cus-info .cus-info-item .cus-item-img {
+            float: right;
+            height: .3rem;
+            width: .3rem;
+            margin-top: .08rem;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .cus-info .cus-info-item .cus-item-img > img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+        }
+        .cus-info .more-link:after,
+        .cus-info .goChange:after {
+            content: "";
+            height: .12rem;
+            width: .07rem;
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-image: url(./image/arrow.svg);
+            position: absolute;
+            right: .15rem;
+            top: 50%;
+            margin-top: -0.06rem;
+        }
+    </style>
+</head>
+<body>
+<div class="cus-info" id="custInfo">
+    <a href="javascript:void(0);" class="cus-info-item more-link head-img" id="uploadCusImg">
+        <span class="cus-item-title">头像</span>
+        <span class="cus-item-img">
+            <img id="cusImage" src="./image/cus.png" alt="头像"/>
+        </span>
+    </a>
+</div>
+<script src="./lib/zepto.min.js"></script>
+<script src="./lib/hammer.js"></script>
+<script src="./lib/exif.js"></script>
+<script src="./lib/hidpi-canvas.min.js"></script>
+<script src="./lib/dialog.js"></script>
+<script src="./js/uploadPic.js"></script>
+<script>
+    $(function(){
+
+        // 图片上传
+        var upload = new UploadCusPic("./image/cus.png", function(data){
+
+            Dialog.loading.close();
+            // 调用回调
+            upload.hide();
+            $("#uploadCusImg").find("img").attr("src", data);
+        });
+
+        $("#uploadCusImg").click(function () {
+            upload.show($("#uploadCusImg").find("img").attr("src"));
+        });
+
+
+    });
+</script>
+</body>
+</html>

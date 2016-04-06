@@ -1,0 +1,214 @@
+@charset "UTF-8";
+*,
+*:before,
+*:after {
+    -webkit-tap-highlight-color: transparent;
+    outline: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+p,
+blockquote,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+pre,
+form,
+fieldset,
+legend,
+button,
+input,
+textarea,
+th,
+td {
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+img {
+    border: 0 none;
+    vertical-align: middle;
+}
+i,
+em {
+    font-style: normal;
+}
+ol,
+ul {
+    list-style: none;
+}
+input,
+select,
+button,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-size: 100%;
+    font-family: inherit;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+a,
+a:visited {
+    text-decoration: none;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+html{
+    font-size: 100px;
+}
+
+body {
+    margin: 0 auto !important;
+    min-width: 320px;
+    max-width: 640px;
+    background: #f1efec;
+    font-size: 12px;
+    font-family: Helvetica, STHeiti STXihei, Microsoft JhengHei, Microsoft YaHei, Arial;
+    line-height: 1.4;
+    color: #444444;
+    -webkit-text-size-adjust: 100% !important;
+    position: relative;
+}
+
+.wrap-dialog {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /*background-color: rgba(0, 0, 0, 0.6);*/
+    z-index: 99999;
+    background-color: #000000;
+}
+.wrap-dialog .cut-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: .6rem;
+    overflow: hidden;
+}
+.wrap-dialog .cut-container > img {
+    position: absolute;
+    width: 100%;
+    vertical-align: middle;
+    -webkit-transform: matrix(1, 0, 0, 1, 0, 0) translateZ(0);
+    transform: matrix(1, 0, 0, 1, 0, 0) translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    perspective: 1000;
+}
+.wrap-dialog .cut-container .img-Initial {
+    display: none;
+}
+.wrap-dialog .cut-container .img-upload {
+    display: block;
+}
+.wrap-dialog .cut-container .cut-box {
+    position: absolute;
+    z-index: 9;
+    width: 100%;
+    height: 100vw;
+    top: 50%;
+    margin-top: -50%;
+    background-color: transparent;
+    box-shadow: inset 0 0 0 1px #fff;
+}
+.wrap-dialog .cut-container .cut-box:before,
+.wrap-dialog .cut-container .cut-box:after {
+    content: "";
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.wrap-dialog .cut-container .cut-box:before {
+    top: -100%;
+}
+.wrap-dialog .cut-container .cut-box:after {
+    bottom: -100%;
+}
+.wrap-dialog .btn-container {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: #1b1b1b;
+}
+.wrap-dialog .btn-container .btn-cut {
+    display: inline-block;
+    padding: 0 .1rem;
+    color: #FFFFFF;
+    font-size: 16px;
+}
+.wrap-dialog .btn-container .btn-upload {
+    position: relative;
+}
+.wrap-dialog .btn-container .btn-upload .cut-upload {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+}
+.wrap-dialog .btn-ready {
+    display: none;
+}
+.wrap-dialog .btn-cutting {
+    display: block;
+}
+.wrap-dialog.cut-ready .img-upload {
+    display: none;
+}
+.wrap-dialog.cut-ready .img-Initial {
+    display: block;
+}
+.wrap-dialog.cut-ready .cut-box {
+    display: none;
+}
+.wrap-dialog.cut-ready .btn-cutting {
+    display: none;
+}
+.wrap-dialog.cut-ready .btn-ready {
+    display: block;
+}
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+.clearfix:after {
+    clear: both;
+}
+.full-l {
+    float: left;
+}
+.full-r {
+    float: right;
+}
