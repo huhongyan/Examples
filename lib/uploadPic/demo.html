@@ -70,6 +70,11 @@
 <script src="./js/uploadPic.js"></script>
 <script>
     $(function(){
+        document.addEventListener("touchmove", function(e){
+            e.stopPropagation();
+            e.preventDefault();
+            return false;
+        }, false);
 
         // 图片上传
         var upload = new UploadCusPic("./image/cus.png", function(data){
