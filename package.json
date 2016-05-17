@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "glob": "^4.3.5",
+    "handlebars": "^4.0.5",
     "shelljs": "^0.3.0"
   }
 }
