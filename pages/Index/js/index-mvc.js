@@ -3,7 +3,7 @@ require([
      "../../../requirejs_config"
 ], function(){
     require([
-        "./js/views/mainView.js", 
+        "./pages/Index/js/views/mainView.js", 
         "bootstrap", 
         "require-css!pages/Index/css/index.css", 
         "require-css!Font-Awesome",
