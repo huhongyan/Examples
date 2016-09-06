@@ -5,7 +5,7 @@ define([
     "backbone",
     'handlebars.runtime',
     "pages/Index/templates/templates.amd",
-    "../collection/menus.js",
+    "pages/Index/js/collection/menus.js",
     "NProgress",
     "mCustomScrollbar",
     "domReady!"
