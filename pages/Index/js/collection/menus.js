@@ -3,7 +3,7 @@ define([
   	"pages/Index/config",
   	"backbone",
   	"backbone.localStorage",
-  	"../models/menu.js"
+  	"pages/Index/js/models/menu.js"
 ], function(config, Backbone, LocalStorage, Menu) {
 
     return Backbone.Collection.extend({
