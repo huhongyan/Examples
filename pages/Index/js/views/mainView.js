@@ -4,8 +4,8 @@ define([
     "backbone",
     'handlebars.runtime',
     "pages/Index/templates/templates.amd",
-    "./pages/Index/headerView.js",
-    "./pages/Index/leftNavBarView.js",
+    "./headerView.js",
+    "./leftNavBarView.js",
     "domReady!"
 ],function($, Backbone, Handlebars, templates, HeaderView, LeftNavbarView){
 
