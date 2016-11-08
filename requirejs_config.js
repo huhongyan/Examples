@@ -13,7 +13,7 @@ require.config({
         "json": "bower_components/requirejs-json/json",
         "text": "bower_components/requirejs-text/text",
     	"handlebars": "node_modules/handlebars/dist/handlebars.min",
-    	"handlebars.runtime": "node_modules/handlebars/dist/handlebars.runtime.amd.min",
+    	"handlebars.runtime": "lib/handlebars.runtime.amd.min",
         "handlebars_ext": "lib/handlebars_ext",
         "underscore":"bower_components/underscore/underscore-min",
         "backbone": "bower_components/backbone/backbone-min",
