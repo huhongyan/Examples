@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="format-detection" content="telephone=no"/>
+    <script type='application/javascript' src="../static/scripts/fastclick.js"></script>
+    <script type='application/javascript' src="../static/scripts/base.js"></script>
+    <link rel="stylesheet" href="../static/styles/reset.css">
+    <link rel="stylesheet" href="../static/styles/main.css">
+    <link rel="stylesheet" href="../static/styles/im.css">
+    <link rel="stylesheet" href="../static/styles/listloading.css">
+    <title>星小巴</title>
+</head>
+<body>
+<div class="main-wrap">
+    <div class="msg-wrap" id="listloading">
+        <div>
+            <div id="msgWrap"></div>
+        </div>
+    </div>
+    <div class="chat-wrap flex chat-txt" id="chatWrap">
+        <!--<button type="button" class="btn btn-tab J-tab">切换语音和文字</button>-->
+        <div class="flex-1 chat-cnt">
+            <div class="cnt-item cnt-txt flex">
+                <input type="text" class="txt-input flex-1 J-txt">
+                <button type="button" class="txt-submit J-submit">发送</button>
+            </div>
+            <button type="button" class="cnt-item cnt-voice J-voice">按住 说话</button>
+        </div>
+        <!--<button type="button" class="btn btn-emoji">emoji</button>-->
+        <button type="button" class="btn btn-location J-location">发送位置</button>
+    </div>
+</div>
+<script src="https://cdn.ronghub.com/RongIMLib-2.2.5.min.js"></script>
+<script src="https://cdn.ronghub.com/RongEmoji-2.2.5.min.js"></script>
+<script src="https://cdn.ronghub.com/RongIMVoice-2.2.5.min.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src='../static/scripts/zepto.js'></script>
+<script src='../static/scripts/zepto_ext.js'></script>
+<script src="../static/scripts/BMap.js"></script>
+<script src="../static/scripts/iscroll.min.js"></script>
+<script src="../static/scripts/listloading.js"></script>
+<script src='../static/scripts/selectLocationPoi.js'></script>
+<script src='../static/scripts/IM.js'></script>
+<script>
+    $(function () {
+
+        CreactRIM('getTokenUrl', 'groupId', 'groupName')
+    })
+</script>
+</body>
+</html>
